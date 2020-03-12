@@ -6,7 +6,8 @@ import inteface.parameter.Parameter;
 import okhttp3.OkHttpClient;
 import pojo.ApiResponse;
 import pojo.av.VideoResponse;
-import pojo.avtype.AVTypeResponse;
+import pojo.av.VideosResponse;
+import pojo.avtype.CategoryResponse;
 import pojo.collections.CollectionResponse;
 import retrofit2.Call;
 import retrofit2.Retrofit;
@@ -24,7 +25,7 @@ import java.util.concurrent.TimeUnit;
 public class ApiServiceImpl implements ApiService {
 
     private static ApiHttpInterface INTERFACE;
-    private static ApiResponse<VideoResponse> responseApiResponse=null;
+    private static ApiResponse<VideosResponse> responseApiResponse=null;
     static {
         Retrofit retrofit= new Retrofit.Builder()
                 .baseUrl("https://api.avgle.com/")
@@ -38,7 +39,7 @@ public class ApiServiceImpl implements ApiService {
     }
 
 
-    public ApiResponse<AVTypeResponse> getVideoCategory() {
+    public ApiResponse<CategoryResponse> getVideoCategory() {
         return executeCall(INTERFACE.getVideoCategory());
     }
 
@@ -47,11 +48,11 @@ public class ApiServiceImpl implements ApiService {
         return executeCall(INTERFACE.getCollections(page,limit));
     }
 
-    public ApiResponse<VideoResponse> getAllVideosOfLimit(int page, int limit) {
+    public ApiResponse<VideosResponse> getAllVideosOfLimit(int page, int limit) {
         return executeCall(INTERFACE.getAllVideosOfLimit(page,limit));
     }
 
-    public ApiResponse<VideoResponse> getAllVideosOfDesc(int page, Parameter.DESC desc) {
+    public ApiResponse<VideosResponse> getAllVideosOfDesc(int page, Parameter.DESC desc) {
 
         switch(desc){
             case LATEST:
@@ -79,7 +80,7 @@ public class ApiServiceImpl implements ApiService {
         return responseApiResponse;
     }
 
-    public ApiResponse<VideoResponse> getAllVideosOfTime(int page, Parameter.TIME time) {
+    public ApiResponse<VideosResponse> getAllVideosOfTime(int page, Parameter.TIME time) {
         switch (time){
             case DAY:
                 responseApiResponse=executeCall(INTERFACE.getAllVideosOfTime(page,"t"));
@@ -99,7 +100,7 @@ public class ApiServiceImpl implements ApiService {
         return responseApiResponse;
     }
 
-    public ApiResponse<VideoResponse> getAllVideosOfType(int page, Parameter.TYPE type) {
+    public ApiResponse<VideosResponse> getAllVideosOfType(int page, Parameter.TYPE type) {
         switch(type){
             case PUBLIC:
                 responseApiResponse=executeCall(INTERFACE.getAllVideosOfType(page,"public"));
@@ -111,7 +112,7 @@ public class ApiServiceImpl implements ApiService {
         return responseApiResponse;
     }
 
-    public ApiResponse<VideoResponse> getAllVideosOfCHID(int page, Parameter.CHID chid) {
+    public ApiResponse<VideosResponse> getAllVideosOfCHID(int page, Parameter.CHID chid) {
         switch (chid){
             case ONE:
                 responseApiResponse=executeCall(INTERFACE.getAllVideosOfCHID(page,"1"));
@@ -124,6 +125,10 @@ public class ApiServiceImpl implements ApiService {
                 break;
         }
         return responseApiResponse;
+    }
+
+    public ApiResponse<VideoResponse> getVideoForVID(int vid) {
+        return executeCall(INTERFACE.getVideoForVID(vid));
     }
 
 

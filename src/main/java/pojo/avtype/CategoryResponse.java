@@ -11,6 +11,6 @@ import java.util.List;
  */
 @Data
 @Accessors(chain = true)
-public class AVTypeResponse {
+public class CategoryResponse {
     private List<Categories> categories;
 }

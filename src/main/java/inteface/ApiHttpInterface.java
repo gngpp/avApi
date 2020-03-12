@@ -1,9 +1,9 @@
 package inteface;
 
-import inteface.parameter.Parameter;
 import pojo.ApiResponse;
 import pojo.av.VideoResponse;
-import pojo.avtype.AVTypeResponse;
+import pojo.av.VideosResponse;
+import pojo.avtype.CategoryResponse;
 import pojo.collections.CollectionResponse;
 import retrofit2.Call;
 import retrofit2.http.GET;
@@ -16,7 +16,7 @@ import retrofit2.http.Query;
  */
 public interface ApiHttpInterface {
     @GET("/v1/categories")
-    Call<ApiResponse<AVTypeResponse>> getVideoCategory();
+    Call<ApiResponse<CategoryResponse>> getVideoCategory();
 
     @GET("/v1/collections/{page}")
     Call<ApiResponse<CollectionResponse>> getCollections(@Path("page") int page,
@@ -24,24 +24,26 @@ public interface ApiHttpInterface {
 
 
     @GET("/v1/videos/{page}")
-    Call<ApiResponse<VideoResponse>> getAllVideosOfLimit(@Path("page")int page,
-                                                  @Query("limit")int limit);
+    Call<ApiResponse<VideosResponse>> getAllVideosOfLimit(@Path("page")int page,
+                                                          @Query("limit")int limit);
 
     @GET("/v1/videos/{page}")
-    Call<ApiResponse<VideoResponse>> getAllVideosOfDesc(@Path("page")int page,
-                                                  @Query("o")String param);
+    Call<ApiResponse<VideosResponse>> getAllVideosOfDesc(@Path("page")int page,
+                                                         @Query("o")String param);
 
     @GET("/v1/videos/{page}")
-    Call<ApiResponse<VideoResponse>> getAllVideosOfTime(@Path("page")int page,
-                                                  @Query("t")String param);
+    Call<ApiResponse<VideosResponse>> getAllVideosOfTime(@Path("page")int page,
+                                                         @Query("t")String param);
 
     @GET("/v1/videos/{page}")
-    Call<ApiResponse<VideoResponse>> getAllVideosOfType(@Path("page")int page,
-                                                  @Query("type")String param);
+    Call<ApiResponse<VideosResponse>> getAllVideosOfType(@Path("page")int page,
+                                                         @Query("type")String param);
 
     @GET("/v1/videos/{page}")
-    Call<ApiResponse<VideoResponse>> getAllVideosOfCHID(@Path("page")int page,
-                                                  @Query("c")String param);
+    Call<ApiResponse<VideosResponse>> getAllVideosOfCHID(@Path("page") int page,
+                                                         @Query("c")String param);
+    @GET("/v1/video/{vid}")
+    Call<ApiResponse<VideoResponse>> getVideoForVID(@Path("vid")int vid);
 
 
 }

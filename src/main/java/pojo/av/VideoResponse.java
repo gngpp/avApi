@@ -3,18 +3,13 @@ package pojo.av;
 import lombok.Data;
 import lombok.experimental.Accessors;
 
-import java.util.List;
-
 /**
- * Create by Ant on 2020/3/12 3:58 下午
+ * Create by Ant on 2020/3/13 12:24 上午
  * amd
  */
 @Data
 @Accessors(chain = true)
 public class VideoResponse {
-    private String has_name;
-    private Integer current_offset;
-    private Integer total_videos;
-    private  Integer limit;
-    private List<VideoInfo> videos;
+    private String token;
+    private Video video;
 }
