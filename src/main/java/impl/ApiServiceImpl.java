@@ -3,16 +3,15 @@ package impl;
 import inteface.ApiHttpInterface;
 import inteface.ApiService;
 import okhttp3.OkHttpClient;
-import resp.avtype.VideoCategory;
-import resp.avtype.VideoCategoryList;
-import resp.avtype.VideoResponse;
-import resp.avtype.VideoTypeInfo;
+import resp.avtype.ApiResponse;
 import retrofit2.Call;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 import java.io.IOException;
-import java.util.List;
+import java.net.InetSocketAddress;
+import java.net.Proxy;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Create by Ant on 2020/3/12 4:36 下午
@@ -26,12 +25,16 @@ public class ApiServiceImpl implements ApiService {
         Retrofit retrofit= new Retrofit.Builder()
                 .baseUrl("https://api.avgle.com/")
                 .addConverterFactory(GsonConverterFactory.create())
-                .client(new OkHttpClient()).build();
+                .client(new OkHttpClient.Builder().
+                        proxy(new Proxy(Proxy.Type.HTTP,new InetSocketAddress("localhost",1087)))
+                        .connectTimeout(10, TimeUnit.SECONDS)
+                        .build())
+                .build();
         INTERFACE=retrofit.create(ApiHttpInterface.class);
     }
 
 
-    public VideoCategory getVideoCategory() {
+    public ApiResponse getVideoCategory() {
         return executeCall(INTERFACE.getVideoCategory());
     }
 
