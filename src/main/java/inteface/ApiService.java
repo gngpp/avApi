@@ -13,13 +13,15 @@ import resp.collections.MovieCollectionList;
 import resp.collections.MovieCollectionInfo;
 import resp.collections.MovieResponse;
 
+import java.util.List;
+
 /**
  * Create by Ant on 2020/3/12 4:36 下午
  * amd
  */
 public interface ApiService {
-    VideoCategory<VideoResponse<VideoCategoryList<VideoTypeInfo>>> getVideoCategory();
-    AllAV<AVResponse<AVVideoList<AVVideoInfo>>> getAllAV();
-    MovieCollection<MovieResponse<MovieCollectionList<MovieCollectionInfo>>> getMovieCollction();
+    VideoCategory<VideoResponse<VideoCategoryList<List<VideoTypeInfo>>>> getVideoCategory();
+//    AllAV<AVResponse<AVVideoList<List<AVVideoInfo>>>> getAllAV();
+//    MovieCollection<MovieResponse<MovieCollectionList<List<MovieCollectionInfo>>>> getMovieCollction();
 }
 

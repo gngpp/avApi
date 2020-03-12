@@ -12,5 +12,5 @@ import java.util.List;
 @Data
 @Accessors(chain = true)
 public class VideoCategoryList<T> {
-    private List<T> infos;
+    private T infos;
 }

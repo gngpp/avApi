@@ -13,7 +13,7 @@ public class VideoTypeInfo {
     private Integer CHID;
     private String  name;
     private String slug;
-    private String total_videos;
+    private Integer total_videos;
     private String category_url;
     private String cover_url;
 }
