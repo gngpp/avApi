@@ -20,7 +20,7 @@ import java.util.List;
  * amd
  */
 public interface ApiService {
-    VideoCategory<VideoResponse<VideoCategoryList<List<VideoTypeInfo>>>> getVideoCategory();
+    VideoCategory getVideoCategory();
 //    AllAV<AVResponse<AVVideoList<List<AVVideoInfo>>>> getAllAV();
 //    MovieCollection<MovieResponse<MovieCollectionList<List<MovieCollectionInfo>>>> getMovieCollction();
 }

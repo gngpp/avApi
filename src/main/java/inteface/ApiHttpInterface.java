@@ -24,7 +24,7 @@ import java.util.List;
  */
 public interface ApiHttpInterface {
     @GET("/v1/categories")
-    Call<VideoCategory<VideoResponse<VideoCategoryList<List<VideoTypeInfo>>>>> getVideoCategory();
+    Call<VideoCategory> getVideoCategory();
 
 //    @GET("/v1/collections")
 //    Call<MovieCollection<MovieResponse<MovieCollectionList<List<MovieCollectionInfo>>>>> getMovieCallection();

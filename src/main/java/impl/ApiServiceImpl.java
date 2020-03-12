@@ -31,7 +31,7 @@ public class ApiServiceImpl implements ApiService {
     }
 
 
-    public VideoCategory<VideoResponse<VideoCategoryList<List<VideoTypeInfo>>>> getVideoCategory() {
+    public VideoCategory getVideoCategory() {
         return executeCall(INTERFACE.getVideoCategory());
     }
 

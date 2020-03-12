@@ -10,7 +10,5 @@ public class Test {
     public static void main(String[] args) throws IOException {
       //  System.out.println(ApiServiceFactory.getService().getAllAV());
        // System.out.println(ApiServiceFactory.getService().getMovieCollction());
-        System.out.println(ApiServiceFactory.getService().getVideoCategory());
-
     }
 }
