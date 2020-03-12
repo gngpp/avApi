@@ -8,14 +8,12 @@ import inteface.ApiService;
  * amd
  */
 public class ApiServiceFactory {
-    private static ApiServiceImpl API;
+    private static  ApiServiceImpl API;
     private ApiServiceFactory(){}
     public static ApiService getService() {
-        synchronized (ApiServiceFactory.class) {
             if (API == null) {
                 API = new ApiServiceImpl();
             }
             return API;
-        }
     }
 }

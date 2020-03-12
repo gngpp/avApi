@@ -8,7 +8,6 @@ import lombok.experimental.Accessors;
  * amd
  */
 @Data
-@Accessors(chain = true)
 public class VideoCategory <T>{
     private boolean success;
     private T response;

@@ -8,7 +8,6 @@ import lombok.experimental.Accessors;
  * amd
  */
 @Data
-@Accessors(chain = true)
 public class VideoTypeInfo {
     private Integer CHID;
     private String  name;

@@ -8,7 +8,7 @@ import lombok.experimental.Accessors;
  * amd
  */
 @Data
-@Accessors(chain = true)
 public class VideoResponse<T> {
-    private T categories;
+    private T categoryList;
 }
+

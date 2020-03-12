@@ -10,7 +10,6 @@ import java.util.List;
  * amd
  */
 @Data
-@Accessors(chain = true)
 public class VideoCategoryList<T> {
     private T infos;
 }
