@@ -9,7 +9,7 @@ import lombok.experimental.Accessors;
  */
 @Data
 @Accessors(chain = true)
-public class VideoInfo {
+public class VideoTypeInfo {
     private Integer CHID;
     private String  name;
     private String slug;

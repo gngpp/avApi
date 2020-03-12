@@ -10,7 +10,7 @@ import org.omg.CORBA.INTERNAL;
  */
 @Data
 @Accessors(chain = true)
-public class AV {
+public class AVVideoInfo {
     private Integer vid;
     private Integer uid;
     private String title;

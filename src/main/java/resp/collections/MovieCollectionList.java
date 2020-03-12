@@ -11,6 +11,6 @@ import java.util.List;
  */
 @Data
 @Accessors(chain = true)
-public class Collections<T> {
+public class MovieCollectionList<T> {
     private List<T> infos;
 }

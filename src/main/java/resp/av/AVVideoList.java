@@ -11,6 +11,6 @@ import java.util.List;
  */
 @Data
 @Accessors(chain = true)
-public class AVVideo <T>{
+public class AVVideoList<T>{
     private List<T> av;
 }

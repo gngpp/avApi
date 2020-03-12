@@ -9,7 +9,7 @@ import lombok.experimental.Accessors;
  */
 @Data
 @Accessors(chain = true)
-public class MovieInfo {
+public class MovieCollectionInfo {
     private Integer id;
     private String title;
     private String keyword;
