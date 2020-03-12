@@ -8,6 +8,6 @@ import api.ApiServiceFactory;
  */
 public class Test {
     public static void main(String[] args) {
-        System.out.println(ApiServiceFactory.getService().getVideoCategory().getResponse());
+        System.out.println(ApiServiceFactory.getService().getVideoCategory().getVideoResponse());
     }
 }
