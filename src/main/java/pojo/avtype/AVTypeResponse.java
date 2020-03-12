@@ -1,4 +1,4 @@
-package resp.avtype;
+package pojo.avtype;
 
 import lombok.Data;
 import lombok.experimental.Accessors;
@@ -11,7 +11,6 @@ import java.util.List;
  */
 @Data
 @Accessors(chain = true)
-public class Response {
+public class AVTypeResponse {
     private List<Categories> categories;
-
 }

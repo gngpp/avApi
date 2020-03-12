@@ -1,8 +1,7 @@
-package resp.av;
+package pojo.av;
 
 import lombok.Data;
 import lombok.experimental.Accessors;
-import org.omg.CORBA.INTERNAL;
 
 /**
  * Create by Ant on 2020/3/12 4:02 下午
@@ -10,7 +9,7 @@ import org.omg.CORBA.INTERNAL;
  */
 @Data
 @Accessors(chain = true)
-public class AVVideoInfo {
+public class VideoInfo {
     private Integer vid;
     private Integer uid;
     private String title;

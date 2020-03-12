@@ -1,4 +1,4 @@
-package resp.collections;
+package pojo.collections;
 
 import lombok.Data;
 import lombok.experimental.Accessors;
@@ -9,7 +9,7 @@ import lombok.experimental.Accessors;
  */
 @Data
 @Accessors(chain = true)
-public class MovieCollectionInfo {
+public class Collections {
     private Integer id;
     private String title;
     private String keyword;

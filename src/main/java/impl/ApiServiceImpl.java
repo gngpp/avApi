@@ -2,8 +2,12 @@ package impl;
 
 import inteface.ApiHttpInterface;
 import inteface.ApiService;
+import inteface.parameter.Parameter;
 import okhttp3.OkHttpClient;
-import resp.avtype.ApiResponse;
+import pojo.ApiResponse;
+import pojo.av.VideoResponse;
+import pojo.avtype.AVTypeResponse;
+import pojo.collections.CollectionResponse;
 import retrofit2.Call;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -20,7 +24,7 @@ import java.util.concurrent.TimeUnit;
 public class ApiServiceImpl implements ApiService {
 
     private static ApiHttpInterface INTERFACE;
-
+    private static ApiResponse<VideoResponse> responseApiResponse=null;
     static {
         Retrofit retrofit= new Retrofit.Builder()
                 .baseUrl("https://api.avgle.com/")
@@ -34,17 +38,93 @@ public class ApiServiceImpl implements ApiService {
     }
 
 
-    public ApiResponse getVideoCategory() {
+    public ApiResponse<AVTypeResponse> getVideoCategory() {
         return executeCall(INTERFACE.getVideoCategory());
     }
 
-//    public AllAV<AVResponse<AVVideoList<List<AVVideoInfo>>>> getAllAV() {
-//        return executeCall(INTERFACE.getAllAV());
-//    }
 
-//    public MovieCollection<MovieResponse<MovieCollectionList<List<MovieCollectionInfo>>>> getMovieCollction() {
-//        return null;
-//    }
+    public ApiResponse<CollectionResponse> getCollections(int page,int limit){
+        return executeCall(INTERFACE.getCollections(page,limit));
+    }
+
+    public ApiResponse<VideoResponse> getAllVideosOfLimit(int page, int limit) {
+        return executeCall(INTERFACE.getAllVideosOfLimit(page,limit));
+    }
+
+    public ApiResponse<VideoResponse> getAllVideosOfDesc(int page, Parameter.DESC desc) {
+
+        switch(desc){
+            case LATEST:
+                responseApiResponse=executeCall(INTERFACE.getAllVideosOfDesc(page,"mr"));
+                break;
+
+            case LONGEST:
+                responseApiResponse=executeCall(INTERFACE.getAllVideosOfDesc(page,"lg"));
+                break;
+            case TOP_RATED:
+                responseApiResponse=executeCall(INTERFACE.getAllVideosOfDesc(page,"tr"));
+                break;
+            case LAST_VIEWED:
+                responseApiResponse=executeCall(INTERFACE.getAllVideosOfDesc(page,"bw"));
+                break;
+            case MOST_VIEWED:
+                responseApiResponse=executeCall(INTERFACE.getAllVideosOfDesc(page,"mv"));
+                break;
+            case MOST_FAVOURED:
+                responseApiResponse=executeCall(INTERFACE.getAllVideosOfDesc(page,"tf"));
+                break;
+            default:
+                responseApiResponse=executeCall(INTERFACE.getAllVideosOfDesc(page,"mr"));
+        }
+        return responseApiResponse;
+    }
+
+    public ApiResponse<VideoResponse> getAllVideosOfTime(int page, Parameter.TIME time) {
+        switch (time){
+            case DAY:
+                responseApiResponse=executeCall(INTERFACE.getAllVideosOfTime(page,"t"));
+                break;
+            case WEEK:
+                responseApiResponse=executeCall(INTERFACE.getAllVideosOfTime(page,"w"));
+                break;
+            case MONTH:
+                responseApiResponse=executeCall(INTERFACE.getAllVideosOfTime(page,"m"));
+                break;
+            case FOREVER:
+                responseApiResponse=executeCall(INTERFACE.getAllVideosOfTime(page,"a"));
+                break;
+            default:
+                responseApiResponse=executeCall(INTERFACE.getAllVideosOfTime(page,"a"));
+        }
+        return responseApiResponse;
+    }
+
+    public ApiResponse<VideoResponse> getAllVideosOfType(int page, Parameter.TYPE type) {
+        switch(type){
+            case PUBLIC:
+                responseApiResponse=executeCall(INTERFACE.getAllVideosOfType(page,"public"));
+                break;
+            case PRIMARY:
+                responseApiResponse=executeCall(INTERFACE.getAllVideosOfType(page,"private"));
+                break;
+        }
+        return responseApiResponse;
+    }
+
+    public ApiResponse<VideoResponse> getAllVideosOfCHID(int page, Parameter.CHID chid) {
+        switch (chid){
+            case ONE:
+                responseApiResponse=executeCall(INTERFACE.getAllVideosOfCHID(page,"1"));
+                break;
+            case TWO:
+                responseApiResponse=executeCall(INTERFACE.getAllVideosOfCHID(page,"2"));
+                break;
+            case THREE:
+                responseApiResponse=executeCall(INTERFACE.getAllVideosOfCHID(page,"3"));
+                break;
+        }
+        return responseApiResponse;
+    }
 
 
     <T> T executeCall(Call<T> call){
@@ -54,5 +134,6 @@ public class ApiServiceImpl implements ApiService {
             e.printStackTrace();
         }
         return null;
+
     }
 }
