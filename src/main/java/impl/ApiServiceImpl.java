@@ -1,7 +1,6 @@
 package impl;
 
 import inteface.ApiHttpInterface;
-import inteface.ApiService;
 import inteface.parameter.Parameter;
 import okhttp3.OkHttpClient;
 import pojo.JsonRootPojo;
@@ -16,7 +15,6 @@ import retrofit2.Call;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-import javax.swing.text.html.HTMLDocument;
 import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.net.Proxy;
@@ -105,6 +103,31 @@ public class ApiServiceImpl implements ApiService {
     @Override
     public JsonRootPojo<VideosResponse<Video>> getVideosOfSearchByCHID(String query, int page, Parameter.CHID chid) {
         return executeCall(INTERFACE.getVideosOfSearchByCHID(query,page, chid.value));
+    }
+
+    @Override
+    public JsonRootPojo<VideosResponse<Video>> getVideosOfSearchJAVsByLimit(String query, int page, int limit) {
+        return executeCall(INTERFACE.getVideosOfSearchJAVsBylimit(query,page,limit));
+    }
+
+    @Override
+    public JsonRootPojo<VideosResponse<Video>> getVideosOfSearchJAVsByDesc(String query, int page, Parameter.DESC desc) {
+        return executeCall(INTERFACE.getVideosOfSearchJAVsByDesc(query,page,desc.value));
+    }
+
+    @Override
+    public JsonRootPojo<VideosResponse<Video>> getVideosOfSearchJAVsByTime(String query, int page, Parameter.TIME time) {
+        return executeCall(INTERFACE.getVideosOfSearchByTime(query,page,time.value));
+    }
+
+    @Override
+    public JsonRootPojo<VideosResponse<Video>> getVideosOfSearchJAVsByType(String query, int page, Parameter.TYPE type) {
+        return executeCall(INTERFACE.getVideosOfSearchJAVsByType(query,page,type.value));
+    }
+
+    @Override
+    public JsonRootPojo<VideosResponse<Video>> getVideosOfSearchJAVsByCHID(String query, int page, Parameter.CHID chid) {
+        return executeCall(INTERFACE.getVideosOfSearchJAVsByCHID(query,page,chid.value));
     }
 
 
