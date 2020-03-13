@@ -62,6 +62,9 @@ public class Parameter {
         }
     }
 
+    /**
+     *
+     */
     public enum CHID{
 
         AV_ACTRESS(1), AV_JAPAN(2), NO_CORRECTION(3),

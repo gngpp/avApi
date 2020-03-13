@@ -15,14 +15,16 @@ public class Video {
     private String title;
     private String keyword;
     private String channel;
-    private Double duration;
-    private Double framerate;
-    private Boolean hd;
-    private Long addtime;
-    private Integer viewnumber;
-    private Integer likes;
-    private Integer dislikes;
+    private double duration;
+    private double framerate;
+    private boolean hd;
+    private long addtime;
+    private int viewnumber;
+    private int likes;
+    private int dislikes;
     private String video_url;
     private String embedded_url;
     private String preview_url;
+    private String preview_video_url;
+    private boolean privatee;
 }
