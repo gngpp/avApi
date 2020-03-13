@@ -42,38 +42,42 @@ public class ApiServiceImpl implements ApiService {
         INTERFACE=retrofit.create(ApiHttpInterface.class);
     }
 
-
+    @Override
     public JsonRootPojo<CategoriesResponse<Category>> getVideoCategory() {
         return executeCall(INTERFACE.getVideoCategory());
     }
 
-
+    @Override
     public JsonRootPojo<CollectionsResponse<Collection>> getCollections(int page, int limit){
         return executeCall(INTERFACE.getCollections(page,limit));
     }
 
+    @Override
     public JsonRootPojo<VideosResponse<Video>> getVideosOfLimit(int page, int limit) {
         return executeCall(INTERFACE.getVideosOfLimit(page,limit));
     }
 
+    @Override
     public JsonRootPojo<VideosResponse<Video>> getVideosOfDesc(int page, Parameter.DESC desc) {
-
         return executeCall(INTERFACE.getVideosOfDesc(page,desc.value));
-
     }
 
+    @Override
     public JsonRootPojo<VideosResponse<Video>> getVideosOfTime(int page, Parameter.TIME time) {
         return executeCall(INTERFACE.getVideosOfTime(page,time.value));
     }
 
+    @Override
     public JsonRootPojo<VideosResponse<Video>> getVideosOfType(int page, Parameter.TYPE type) {
         return executeCall(INTERFACE.getVideosOfType(page,type.value));
     }
 
+    @Override
     public JsonRootPojo<VideosResponse<Video>> getVideosOfCHID(int page, Parameter.CHID chid) {
         return executeCall(INTERFACE.getVideosOfCHID(page,chid.value));
     }
 
+    @Override
     public JsonRootPojo<VideoResponse<Video>> getVideoForVID(int vid) {
         return executeCall(INTERFACE.getVideoForVID(vid));
     }
