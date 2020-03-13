@@ -1,5 +1,6 @@
 package inteface;
 
+import inteface.parameter.Parameter;
 import pojo.JsonRootPojo;
 import pojo.videos.Video;
 import pojo.videos.VideoResponse;
@@ -48,5 +49,28 @@ public interface ApiHttpInterface {
     @GET("/v1/video/{vid}")
     Call<JsonRootPojo<VideoResponse<Video>>> getVideoForVID(@Path("vid")int vid);
 
+    @GET("/v1/search/{query}/{page}")
+    Call<JsonRootPojo<VideosResponse<Video>>> getVideosOfSearchBylimit(@Path("query")String query,
+                                                                       @Path("page")int page,
+                                                                       @Query("limit")int limit);
 
+    @GET("/v1/search/{query}/{page}")
+    Call<JsonRootPojo<VideosResponse<Video>>> getVideosOfSearchByDesc(@Path("query")String query,
+                                                                     @Path("page")int page,
+                                                                     @Query("o")Parameter.DESC desc);
+
+    @GET("/v1/search/{query}/{page}")
+    Call<JsonRootPojo<VideosResponse<Video>>> getVideosOfSearchByType(@Path("query")String query,
+                                                                      @Path("page")int page,
+                                                                      @Query("type")Parameter.TYPE type);
+
+    @GET("/v1/search/{query}/{page}")
+    Call<JsonRootPojo<VideosResponse<Video>>> getVideosOfSearchByTime(@Path("query")String query,
+                                                                      @Path("page")int page,
+                                                                      @Query("t")Parameter.TIME time);
+
+    @GET("/v1/search/{query}/{page}")
+    Call<JsonRootPojo<VideosResponse<Video>>> getVideosOfSearchByCHID(@Path("query")String query,
+                                                                      @Path("page")int page,
+                                                                      @Query("c")Parameter.CHID chid);
 }
