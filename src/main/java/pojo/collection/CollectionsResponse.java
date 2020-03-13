@@ -11,7 +11,7 @@ import java.util.List;
  */
 @Data
 @Accessors(chain = true)
-public class CollectionResponse<T> {
+public class CollectionsResponse<T> {
     private boolean has_more;
     private Integer total_collections;
     private Integer current_offset;

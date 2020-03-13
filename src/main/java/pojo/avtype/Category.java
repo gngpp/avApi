@@ -13,7 +13,7 @@ import lombok.experimental.Accessors;
  */
 @Data
 @Accessors(chain = true)
-public class Categories {
+public class Category {
 
     private String CHID;
     private String name;

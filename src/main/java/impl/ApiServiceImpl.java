@@ -8,10 +8,10 @@ import pojo.JsonRootPojo;
 import pojo.av.Video;
 import pojo.av.VideoResponse;
 import pojo.av.VideosResponse;
-import pojo.avtype.Categories;
-import pojo.avtype.CategoryResponse;
-import pojo.collection.CollectionResponse;
-import pojo.collection.Collections;
+import pojo.avtype.Category;
+import pojo.avtype.CategoriesResponse;
+import pojo.collection.CollectionsResponse;
+import pojo.collection.Collection;
 import retrofit2.Call;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -42,12 +42,12 @@ public class ApiServiceImpl implements ApiService {
     }
 
 
-    public JsonRootPojo<CategoryResponse<Categories>> getVideoCategory() {
+    public JsonRootPojo<CategoriesResponse<Category>> getVideoCategory() {
         return executeCall(INTERFACE.getVideoCategory());
     }
 
 
-    public JsonRootPojo<CollectionResponse<Collections>> getCollections(int page, int limit){
+    public JsonRootPojo<CollectionsResponse<Collection>> getCollections(int page, int limit){
         return executeCall(INTERFACE.getCollections(page,limit));
     }
 

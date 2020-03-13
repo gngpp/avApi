@@ -11,6 +11,6 @@ import java.util.List;
  */
 @Data
 @Accessors(chain = true)
-public class CategoryResponse <T>{
+public class CategoriesResponse<T>{
     private List<T> categories;
 }

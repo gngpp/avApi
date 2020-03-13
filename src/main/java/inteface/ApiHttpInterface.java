@@ -4,10 +4,10 @@ import pojo.JsonRootPojo;
 import pojo.av.Video;
 import pojo.av.VideoResponse;
 import pojo.av.VideosResponse;
-import pojo.avtype.Categories;
-import pojo.avtype.CategoryResponse;
-import pojo.collection.CollectionResponse;
-import pojo.collection.Collections;
+import pojo.avtype.Category;
+import pojo.avtype.CategoriesResponse;
+import pojo.collection.CollectionsResponse;
+import pojo.collection.Collection;
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
@@ -19,10 +19,10 @@ import retrofit2.http.Query;
  */
 public interface ApiHttpInterface {
     @GET("/v1/categories")
-    Call<JsonRootPojo<CategoryResponse<Categories>>> getVideoCategory();
+    Call<JsonRootPojo<CategoriesResponse<Category>>> getVideoCategory();
 
     @GET("/v1/collections/{page}")
-    Call<JsonRootPojo<CollectionResponse<Collections>>> getCollections(@Path("page") int page,
+    Call<JsonRootPojo<CollectionsResponse<Collection>>> getCollections(@Path("page") int page,
                                                                        @Query("limit")int limit);
 
 

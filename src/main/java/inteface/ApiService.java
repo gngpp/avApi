@@ -5,19 +5,19 @@ import pojo.JsonRootPojo;
 import pojo.av.Video;
 import pojo.av.VideoResponse;
 import pojo.av.VideosResponse;
-import pojo.avtype.Categories;
-import pojo.avtype.CategoryResponse;
-import pojo.collection.CollectionResponse;
-import pojo.collection.Collections;
+import pojo.avtype.Category;
+import pojo.avtype.CategoriesResponse;
+import pojo.collection.CollectionsResponse;
+import pojo.collection.Collection;
 
 /**
  * Create by Ant on 2020/3/12 4:36 下午
  * amd
  */
 public interface ApiService {
-     JsonRootPojo<CategoryResponse<Categories>> getVideoCategory();
+     JsonRootPojo<CategoriesResponse<Category>> getVideoCategory();
 
-     JsonRootPojo<CollectionResponse<Collections>> getCollections(int page, int limit);
+     JsonRootPojo<CollectionsResponse<Collection>> getCollections(int page, int limit);
 
      JsonRootPojo<VideosResponse<Video>> getAllVideosOfLimit(int page, int limit);
 

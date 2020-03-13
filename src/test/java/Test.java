@@ -1,6 +1,8 @@
 import api.ApiServiceFactory;
 import inteface.parameter.Parameter;
 import pojo.av.Video;
+import pojo.avtype.Category;
+import pojo.collection.Collection;
 
 import java.util.List;
 
@@ -10,21 +12,33 @@ import java.util.List;
  */
 public class Test {
     public static void main(String[] args) {
-//        List<Categories> categories=ApiServiceFactory.getService().getVideoCategory().getResponse().getCategories();
-//        for (Categories categories1:categories){
-//            System.out.println(categories1);
-//        }
-//
-//        List<Collections> collection=ApiServiceFactory.getService().getCollections(2,19).getResponse().getCollections();
-//        for (Collections collection:collection){
-//            System.out.println(collection);
-//        }
+        List<Category> categories=ApiServiceFactory.getService().getVideoCategory().getResponse().getCategories();
+        categories.forEach(System.out::println);
 
+        List<Collection> collections=ApiServiceFactory.getService().getCollections(2,19).getResponse().getCollections();
+        collections.forEach(System.out::println);
 
-        List<Video> videoInfos=ApiServiceFactory.getService().getAllVideosOfDesc(2, Parameter.DESC.TOP_RATED).getResponse().getVideos();
+        List<Video> videoInfos0=ApiServiceFactory.getService().getAllVideosOfDesc(2, Parameter.DESC.TOP_RATED).getResponse().getVideos();
+        videoInfos0.forEach(System.out::println);
+
+        List<Video> videoInfos1=ApiServiceFactory.getService().getAllVideosOfDesc(2, Parameter.DESC.LAST_VIEWED).getResponse().getVideos();
+        videoInfos1.forEach(System.out::println);
+
+        List<Video> videoInfos2=ApiServiceFactory.getService().getAllVideosOfDesc(2, Parameter.DESC.LATEST).getResponse().getVideos();
+        videoInfos2.forEach(System.out::println);
+
+        List<Video> videoInfos3=ApiServiceFactory.getService().getAllVideosOfDesc(2, Parameter.DESC.LONGEST).getResponse().getVideos();
+        videoInfos3.forEach(System.out::println);
+
+        List<Video> videoInfos4=ApiServiceFactory.getService().getAllVideosOfDesc(2, Parameter.DESC.MOST_VIEWED).getResponse().getVideos();
+        videoInfos4.forEach(System.out::println);
+
+        List<Video> videoInfos5=ApiServiceFactory.getService().getAllVideosOfDesc(2, Parameter.DESC.MOST_FAVOURED).getResponse().getVideos();
+        videoInfos5.forEach(System.out::println);
+
         Video videoInfo=ApiServiceFactory.getService().getVideoForVID(2).getResponse().getVideo();
         System.out.println(videoInfo);
-        videoInfos.forEach(System.out::println);
+
 
 
 
