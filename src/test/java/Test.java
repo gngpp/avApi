@@ -279,5 +279,43 @@ public class Test {
         list.forEach(System.out::println);
     }
 
+    @org.junit.Test
+    public void videosOfSearchJAVsByDescTest(){
+        List<Video> list=ApiServiceFactory
+                .getService()
+                .getVideosOfSearchJAVsByDesc("少女",0, Parameter.DESC.LATEST)
+                .getResponse()
+                .getVideos();
+        list.forEach(System.out::println);
+    }
 
+    @org.junit.Test
+    public void videosOfSearchJAVsByTimeTest(){
+        List<Video> list=ApiServiceFactory
+                .getService()
+                .getVideosOfSearchJAVsByTime("熟女",0, Parameter.TIME.WEEK)
+                .getResponse()
+                .getVideos();
+        list.forEach(System.out::println);
+    }
+
+    @org.junit.Test
+    public void videosOfSearchJAVsByTypeTest(){
+        List<Video> list = ApiServiceFactory
+                .getService()
+                .getVideosOfSearchJAVsByType("日本",1, Parameter.TYPE.PUBLIC)
+                .getResponse()
+                .getVideos();
+        list.forEach(System.out::println);
+    }
+
+    @org.junit.Test
+    public void videosOfSearchJAVsByCHIDTest(){
+        List<Video> list = ApiServiceFactory
+                .getService()
+                .getVideosOfSearchJAVsByCHID("中国",0, Parameter.CHID.AV_ACTRESS)
+                .getResponse()
+                .getVideos();
+        list.forEach(System.out::println);
+    }
 }
