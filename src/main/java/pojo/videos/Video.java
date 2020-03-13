@@ -10,8 +10,8 @@ import lombok.experimental.Accessors;
 @Data
 @Accessors(chain = true)
 public class Video {
-    private String vid;
-    private String uid;
+    private int vid;
+    private int uid;
     private String title;
     private String keyword;
     private String channel;

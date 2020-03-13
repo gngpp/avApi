@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="schema.VideoInfo" table="video_info" schema="av_video">
+        <id name="vid">
+            <column name="vid" sql-type="int(11)"/>
+        </id>
+        <property name="uid">
+            <column name="uid" sql-type="int(11)" not-null="true"/>
+        </property>
+        <property name="title">
+            <column name="title" sql-type="varchar(255)" not-null="true"/>
+        </property>
+        <property name="keyword">
+            <column name="keyword" sql-type="varchar(255)" not-null="true"/>
+        </property>
+        <property name="channel">
+            <column name="channel" sql-type="varchar(255)" not-null="true"/>
+        </property>
+        <property name="duration">
+            <column name="duration" sql-type="double(255)" precision="255" not-null="true"/>
+        </property>
+        <property name="framerate">
+            <column name="framerate" sql-type="double(255)" precision="255" not-null="true"/>
+        </property>
+        <property name="hd">
+            <column name="hd" sql-type="tinyint(1)" not-null="true"/>
+        </property>
+        <property name="addtime">
+            <column name="addtime" sql-type="date" not-null="true"/>
+        </property>
+        <property name="viewnumber">
+            <column name="viewnumber" sql-type="int(11)" not-null="true"/>
+        </property>
+        <property name="likes">
+            <column name="likes" sql-type="int(11)" not-null="true"/>
+        </property>
+        <property name="dislikes">
+            <column name="dislikes" sql-type="int(11)" not-null="true"/>
+        </property>
+        <property name="videoUrl">
+            <column name="video_url" sql-type="varchar(255)" not-null="true"/>
+        </property>
+        <property name="embeddedUrl">
+            <column name="embedded_url" sql-type="varchar(255)" not-null="true"/>
+        </property>
+        <property name="priviewUrl">
+            <column name="priview_url" sql-type="varchar(255)" not-null="true"/>
+        </property>
+        <property name="previewVideoUrl">
+            <column name="preview_video_url" sql-type="varchar(255)" not-null="true"/>
+        </property>
+        <property name="privatee">
+            <column name="privatee" sql-type="tinyint(1)" not-null="true"/>
+        </property>
+    </class>
+</hibernate-mapping>
