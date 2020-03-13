@@ -51,79 +51,104 @@ public class ApiServiceImpl implements ApiService {
         return executeCall(INTERFACE.getCollections(page,limit));
     }
 
-    public JsonRootPojo<VideosResponse<Video>> getAllVideosOfLimit(int page, int limit) {
-        return executeCall(INTERFACE.getAllVideosOfLimit(page,limit));
+    public JsonRootPojo<VideosResponse<Video>> getVideosOfLimit(int page, int limit) {
+        return executeCall(INTERFACE.getVideosOfLimit(page,limit));
     }
 
-    public JsonRootPojo<VideosResponse<Video>> getAllVideosOfDesc(int page, Parameter.DESC desc) {
+    public JsonRootPojo<VideosResponse<Video>> getVideosOfDesc(int page, Parameter.DESC desc) {
 
         switch(desc) {
             case LATEST:
-                return executeCall(INTERFACE.getAllVideosOfDesc(page, "mr"));
+                return executeCall(INTERFACE.getVideosOfDesc(page, "mr"));
 
             case LONGEST:
-                return executeCall(INTERFACE.getAllVideosOfDesc(page, "lg"));
+                return executeCall(INTERFACE.getVideosOfDesc(page, "lg"));
             case TOP_RATED:
-                return executeCall(INTERFACE.getAllVideosOfDesc(page, "tr"));
+                return executeCall(INTERFACE.getVideosOfDesc(page, "tr"));
 
             case LAST_VIEWED:
-                return executeCall(INTERFACE.getAllVideosOfDesc(page, "bw"));
+                return executeCall(INTERFACE.getVideosOfDesc(page, "bw"));
 
             case MOST_VIEWED:
-                return executeCall(INTERFACE.getAllVideosOfDesc(page, "mv"));
+                return executeCall(INTERFACE.getVideosOfDesc(page, "mv"));
 
             case MOST_FAVOURED:
-                return executeCall(INTERFACE.getAllVideosOfDesc(page, "tf"));
+                return executeCall(INTERFACE.getVideosOfDesc(page, "tf"));
 
         }
         return null;
 
     }
 
-    public JsonRootPojo<VideosResponse<Video>> getAllVideosOfTime(int page, Parameter.TIME time) {
+    public JsonRootPojo<VideosResponse<Video>> getVideosOfTime(int page, Parameter.TIME time) {
         switch (time){
             case DAY:
-                return executeCall(INTERFACE.getAllVideosOfTime(page,"t"));
+                return executeCall(INTERFACE.getVideosOfTime(page,"t"));
 
             case WEEK:
-                return executeCall(INTERFACE.getAllVideosOfTime(page,"w"));
+                return executeCall(INTERFACE.getVideosOfTime(page,"w"));
 
             case MONTH:
-                return executeCall(INTERFACE.getAllVideosOfTime(page,"m"));
+                return executeCall(INTERFACE.getVideosOfTime(page,"m"));
 
             case FOREVER:
-                return executeCall(INTERFACE.getAllVideosOfTime(page,"a"));
+                return executeCall(INTERFACE.getVideosOfTime(page,"a"));
         }
         return null;
     }
 
-    public JsonRootPojo<VideosResponse<Video>> getAllVideosOfType(int page, Parameter.TYPE type) {
+    public JsonRootPojo<VideosResponse<Video>> getVideosOfType(int page, Parameter.TYPE type) {
         switch(type){
             case PUBLIC:
-                return executeCall(INTERFACE.getAllVideosOfType(page,"public"));
+                return executeCall(INTERFACE.getVideosOfType(page,"public"));
 
             case PRIMARY:
-                return executeCall(INTERFACE.getAllVideosOfType(page,"private"));
+                return executeCall(INTERFACE.getVideosOfType(page,"private"));
         }
         return null;
     }
 
-    public JsonRootPojo<VideosResponse<Video>> getAllVideosOfCHID(int page, Parameter.CHID chid) {
+    public JsonRootPojo<VideosResponse<Video>> getVideosOfCHID(int page, Parameter.CHID chid) {
         switch (chid){
             case ONE:
-                return executeCall(INTERFACE.getAllVideosOfCHID(page,"1"));
+                return executeCall(INTERFACE.getVideosOfCHID(page,"1"));
 
             case TWO:
-                return executeCall(INTERFACE.getAllVideosOfCHID(page,"2"));
+                return executeCall(INTERFACE.getVideosOfCHID(page,"2"));
 
             case THREE:
-                return executeCall(INTERFACE.getAllVideosOfCHID(page,"3"));
+                return executeCall(INTERFACE.getVideosOfCHID(page,"3"));
         }
         return null;
     }
 
     public JsonRootPojo<VideoResponse<Video>> getVideoForVID(int vid) {
         return executeCall(INTERFACE.getVideoForVID(vid));
+    }
+
+    @Override
+    public JsonRootPojo<VideosResponse<Video>> getVideosOfSearchByLimit(String query, int page, int limit) {
+        return executeCall(INTERFACE.get)
+    }
+
+    @Override
+    public JsonRootPojo<VideosResponse<Video>> getVideosOfSearchByDesc(String query, int page, Parameter.DESC desc) {
+        return null;
+    }
+
+    @Override
+    public JsonRootPojo<VideosResponse<Video>> getVideosOfSearchByTime(String query, int page, Parameter.TIME time) {
+        return null;
+    }
+
+    @Override
+    public JsonRootPojo<VideosResponse<Video>> getVideosOfSearchByType(String query, int page, Parameter.TYPE type) {
+        return null;
+    }
+
+    @Override
+    public JsonRootPojo<VideosResponse<Video>> getVideosOfSearchByCHID(String query, int page, Parameter.CHID chid) {
+        return null;
     }
 
 

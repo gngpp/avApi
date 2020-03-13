@@ -1,6 +1,7 @@
 package inteface;
 
 import inteface.parameter.Parameter;
+import jdk.nashorn.internal.scripts.JS;
 import pojo.JsonRootPojo;
 import pojo.videos.Video;
 import pojo.videos.VideoResponse;
@@ -19,17 +20,30 @@ public interface ApiService {
 
      JsonRootPojo<CollectionsResponse<Collection>> getCollections(int page, int limit);
 
-     JsonRootPojo<VideosResponse<Video>> getAllVideosOfLimit(int page, int limit);
+     JsonRootPojo<VideosResponse<Video>> getVideosOfLimit(int page, int limit);
 
-     JsonRootPojo<VideosResponse<Video>> getAllVideosOfDesc(int page, Parameter.DESC desc);
+     JsonRootPojo<VideosResponse<Video>> getVideosOfDesc(int page, Parameter.DESC desc);
 
-     JsonRootPojo<VideosResponse<Video>> getAllVideosOfTime(int page, Parameter.TIME time);
+     JsonRootPojo<VideosResponse<Video>> getVideosOfTime(int page, Parameter.TIME time);
 
-     JsonRootPojo<VideosResponse<Video>> getAllVideosOfType(int page, Parameter.TYPE type);
+     JsonRootPojo<VideosResponse<Video>> getVideosOfType(int page, Parameter.TYPE type);
 
-     JsonRootPojo<VideosResponse<Video>> getAllVideosOfCHID(int page, Parameter.CHID chid);
+     JsonRootPojo<VideosResponse<Video>> getVideosOfCHID(int page, Parameter.CHID chid);
 
-     JsonRootPojo<VideoResponse<Video>> getVideoForVID(int vid);
+     JsonRootPojo<VideoResponse<Video>>  getVideoForVID(int vid);
+
+     JsonRootPojo<VideosResponse<Video>> getVideosOfSearchByLimit(String query,int page,int limit);
+
+     JsonRootPojo<VideosResponse<Video>> getVideosOfSearchByDesc(String query,int page,Parameter.DESC desc);
+
+     JsonRootPojo<VideosResponse<Video>> getVideosOfSearchByTime(String query,int page,Parameter.TIME time);
+
+     JsonRootPojo<VideosResponse<Video>> getVideosOfSearchByType(String query,int page,Parameter.TYPE type);
+
+     JsonRootPojo<VideosResponse<Video>> getVideosOfSearchByCHID(String query,int page,Parameter.CHID chid);
+
+
+
 
 
 }

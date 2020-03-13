@@ -28,24 +28,24 @@ public interface ApiHttpInterface {
 
 
     @GET("/v1/videos/{page}")
-    Call<JsonRootPojo<VideosResponse<Video>>> getAllVideosOfLimit(@Path("page")int page,
-                                                                  @Query("limit")int limit);
+    Call<JsonRootPojo<VideosResponse<Video>>> getVideosOfLimit(@Path("page")int page,
+                                                               @Query("limit")int limit);
 
     @GET("/v1/videos/{page}")
-    Call<JsonRootPojo<VideosResponse<Video>>> getAllVideosOfDesc(@Path("page")int page,
-                                                          @Query("o")String param);
+    Call<JsonRootPojo<VideosResponse<Video>>> getVideosOfDesc(@Path("page")int page,
+                                                              @Query("o")String param);
 
     @GET("/v1/videos/{page}")
-    Call<JsonRootPojo<VideosResponse<Video>>> getAllVideosOfTime(@Path("page")int page,
-                                                          @Query("t")String param);
+    Call<JsonRootPojo<VideosResponse<Video>>> getVideosOfTime(@Path("page")int page,
+                                                              @Query("t")String param);
 
     @GET("/v1/videos/{page}")
-    Call<JsonRootPojo<VideosResponse<Video>>> getAllVideosOfType(@Path("page")int page,
-                                                          @Query("type")String param);
+    Call<JsonRootPojo<VideosResponse<Video>>> getVideosOfType(@Path("page")int page,
+                                                              @Query("type")String param);
 
     @GET("/v1/videos/{page}")
-    Call<JsonRootPojo<VideosResponse<Video>>> getAllVideosOfCHID(@Path("page") int page,
-                                                          @Query("c")String param);
+    Call<JsonRootPojo<VideosResponse<Video>>> getVideosOfCHID(@Path("page") int page,
+                                                              @Query("c")String param);
     @GET("/v1/video/{vid}")
     Call<JsonRootPojo<VideoResponse<Video>>> getVideoForVID(@Path("vid")int vid);
 
