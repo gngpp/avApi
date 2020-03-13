@@ -279,5 +279,5 @@ public class Test {
         list.forEach(System.out::println);
     }
 
-    
+
 }

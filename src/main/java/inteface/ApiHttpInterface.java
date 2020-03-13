@@ -74,27 +74,27 @@ public interface ApiHttpInterface {
                                                                       @Path("page")int page,
                                                                       @Query("c")int chid);
 
-    @GET("/v1/search/{query}/{page}")
-    Call<JsonRootPojo<VideosResponse<Video>>> getVideosOfSearchJAVsBylimit(@Path("query")String query,
+    @GET("/v1/jav/{query}/{page}")
+    Call<JsonRootPojo<VideosResponse<Video>>> getVideosOfSearchJAVsByLimit(@Path("query")String query,
                                                                        @Path("page")int page,
                                                                        @Query("limit")int limit);
 
-    @GET("/v1/search/{query}/{page}")
+    @GET("/v1/jav/{query}/{page}")
     Call<JsonRootPojo<VideosResponse<Video>>> getVideosOfSearchJAVsByDesc(@Path("query")String query,
                                                                       @Path("page")int page,
                                                                       @Query("o")String desc);
 
-    @GET("/v1/search/{query}/{page}")
+    @GET("/v1/jav/{query}/{page}")
     Call<JsonRootPojo<VideosResponse<Video>>> getVideosOfSearchJAVsByType(@Path("query")String query,
                                                                       @Path("page")int page,
                                                                       @Query("type")String type);
 
-    @GET("/v1/search/{query}/{page}")
+    @GET("/v1/jav/{query}/{page}")
     Call<JsonRootPojo<VideosResponse<Video>>> getVideosOfSearchJAVsByTime(@Path("query")String query,
                                                                       @Path("page")int page,
                                                                       @Query("t")String time);
 
-    @GET("/v1/search/{query}/{page}")
+    @GET("/v1/jav/{query}/{page}")
     Call<JsonRootPojo<VideosResponse<Video>>> getVideosOfSearchJAVsByCHID(@Path("query")String query,
                                                                       @Path("page")int page,
                                                                       @Query("c")int chid);

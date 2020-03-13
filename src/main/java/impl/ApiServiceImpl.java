@@ -108,7 +108,7 @@ public class ApiServiceImpl implements ApiService {
 
     @Override
     public JsonRootPojo<VideosResponse<Video>> getVideosOfSearchJAVsByLimit(String query, int page, int limit) {
-        return executeCall(INTERFACE.getVideosOfSearchJAVsBylimit(query,page,limit));
+        return executeCall(INTERFACE.getVideosOfSearchJAVsByLimit(query,page,limit));
     }
 
     @Override
@@ -118,7 +118,7 @@ public class ApiServiceImpl implements ApiService {
 
     @Override
     public JsonRootPojo<VideosResponse<Video>> getVideosOfSearchJAVsByTime(String query, int page, Parameter.TIME time) {
-        return executeCall(INTERFACE.getVideosOfSearchByTime(query,page,time.value));
+        return executeCall(INTERFACE.getVideosOfSearchJAVsByTime(query,page,time.value));
     }
 
     @Override
