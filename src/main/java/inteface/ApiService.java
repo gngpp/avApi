@@ -1,32 +1,35 @@
 package inteface;
 
 import inteface.parameter.Parameter;
-import pojo.ApiResponse;
+import pojo.JsonRootPojo;
+import pojo.av.Video;
 import pojo.av.VideoResponse;
 import pojo.av.VideosResponse;
+import pojo.avtype.Categories;
 import pojo.avtype.CategoryResponse;
-import pojo.collections.CollectionResponse;
+import pojo.collection.CollectionResponse;
+import pojo.collection.Collections;
 
 /**
  * Create by Ant on 2020/3/12 4:36 下午
  * amd
  */
 public interface ApiService {
-     ApiResponse<CategoryResponse> getVideoCategory();
+     JsonRootPojo<CategoryResponse<Categories>> getVideoCategory();
 
-     ApiResponse<CollectionResponse> getCollections(int page,int limit);
+     JsonRootPojo<CollectionResponse<Collections>> getCollections(int page, int limit);
 
-     ApiResponse<VideosResponse> getAllVideosOfLimit(int page, int limit);
+     JsonRootPojo<VideosResponse<Video>> getAllVideosOfLimit(int page, int limit);
 
-     ApiResponse<VideosResponse> getAllVideosOfDesc(int page, Parameter.DESC desc);
+     JsonRootPojo<VideosResponse<Video>> getAllVideosOfDesc(int page, Parameter.DESC desc);
 
-     ApiResponse<VideosResponse> getAllVideosOfTime(int page, Parameter.TIME time);
+     JsonRootPojo<VideosResponse<Video>> getAllVideosOfTime(int page, Parameter.TIME time);
 
-     ApiResponse<VideosResponse> getAllVideosOfType(int page, Parameter.TYPE type);
+     JsonRootPojo<VideosResponse<Video>> getAllVideosOfType(int page, Parameter.TYPE type);
 
-     ApiResponse<VideosResponse> getAllVideosOfCHID(int page, Parameter.CHID chid);
+     JsonRootPojo<VideosResponse<Video>> getAllVideosOfCHID(int page, Parameter.CHID chid);
 
-     ApiResponse<VideoResponse> getVideoForVID(int vid);
+     JsonRootPojo<VideoResponse<Video>> getVideoForVID(int vid);
 
 
 }

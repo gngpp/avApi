@@ -9,7 +9,7 @@ import lombok.experimental.Accessors;
  */
 @Data
 @Accessors(chain = true)
-public class VideoResponse {
+public class VideoResponse <T>{
     private String token;
-    private Video video;
+    private T video;
 }

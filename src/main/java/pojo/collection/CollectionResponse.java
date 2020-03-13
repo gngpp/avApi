@@ -1,4 +1,4 @@
-package pojo.collections;
+package pojo.collection;
 
 import lombok.Data;
 import lombok.experimental.Accessors;
@@ -11,10 +11,10 @@ import java.util.List;
  */
 @Data
 @Accessors(chain = true)
-public class CollectionResponse {
+public class CollectionResponse<T> {
     private boolean has_more;
     private Integer total_collections;
     private Integer current_offset;
     private Integer limit;
-    private List<Collections> collections;
+    private List<T> collections;
 }

@@ -4,11 +4,14 @@ import inteface.ApiHttpInterface;
 import inteface.ApiService;
 import inteface.parameter.Parameter;
 import okhttp3.OkHttpClient;
-import pojo.ApiResponse;
+import pojo.JsonRootPojo;
+import pojo.av.Video;
 import pojo.av.VideoResponse;
 import pojo.av.VideosResponse;
+import pojo.avtype.Categories;
 import pojo.avtype.CategoryResponse;
-import pojo.collections.CollectionResponse;
+import pojo.collection.CollectionResponse;
+import pojo.collection.Collections;
 import retrofit2.Call;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -25,7 +28,7 @@ import java.util.concurrent.TimeUnit;
 public class ApiServiceImpl implements ApiService {
 
     private static ApiHttpInterface INTERFACE;
-    private static ApiResponse<VideosResponse> responseApiResponse=null;
+
     static {
         Retrofit retrofit= new Retrofit.Builder()
                 .baseUrl("https://api.avgle.com/")
@@ -39,95 +42,87 @@ public class ApiServiceImpl implements ApiService {
     }
 
 
-    public ApiResponse<CategoryResponse> getVideoCategory() {
+    public JsonRootPojo<CategoryResponse<Categories>> getVideoCategory() {
         return executeCall(INTERFACE.getVideoCategory());
     }
 
 
-    public ApiResponse<CollectionResponse> getCollections(int page,int limit){
+    public JsonRootPojo<CollectionResponse<Collections>> getCollections(int page, int limit){
         return executeCall(INTERFACE.getCollections(page,limit));
     }
 
-    public ApiResponse<VideosResponse> getAllVideosOfLimit(int page, int limit) {
+    public JsonRootPojo<VideosResponse<Video>> getAllVideosOfLimit(int page, int limit) {
         return executeCall(INTERFACE.getAllVideosOfLimit(page,limit));
     }
 
-    public ApiResponse<VideosResponse> getAllVideosOfDesc(int page, Parameter.DESC desc) {
+    public JsonRootPojo<VideosResponse<Video>> getAllVideosOfDesc(int page, Parameter.DESC desc) {
 
-        switch(desc){
+        switch(desc) {
             case LATEST:
-                responseApiResponse=executeCall(INTERFACE.getAllVideosOfDesc(page,"mr"));
-                break;
+                return executeCall(INTERFACE.getAllVideosOfDesc(page, "mr"));
 
             case LONGEST:
-                responseApiResponse=executeCall(INTERFACE.getAllVideosOfDesc(page,"lg"));
-                break;
+                return executeCall(INTERFACE.getAllVideosOfDesc(page, "lg"));
             case TOP_RATED:
-                responseApiResponse=executeCall(INTERFACE.getAllVideosOfDesc(page,"tr"));
-                break;
+                return executeCall(INTERFACE.getAllVideosOfDesc(page, "tr"));
+
             case LAST_VIEWED:
-                responseApiResponse=executeCall(INTERFACE.getAllVideosOfDesc(page,"bw"));
-                break;
+                return executeCall(INTERFACE.getAllVideosOfDesc(page, "bw"));
+
             case MOST_VIEWED:
-                responseApiResponse=executeCall(INTERFACE.getAllVideosOfDesc(page,"mv"));
-                break;
+                return executeCall(INTERFACE.getAllVideosOfDesc(page, "mv"));
+
             case MOST_FAVOURED:
-                responseApiResponse=executeCall(INTERFACE.getAllVideosOfDesc(page,"tf"));
-                break;
-            default:
-                responseApiResponse=executeCall(INTERFACE.getAllVideosOfDesc(page,"mr"));
+                return executeCall(INTERFACE.getAllVideosOfDesc(page, "tf"));
+
         }
-        return responseApiResponse;
+        return null;
+
     }
 
-    public ApiResponse<VideosResponse> getAllVideosOfTime(int page, Parameter.TIME time) {
+    public JsonRootPojo<VideosResponse<Video>> getAllVideosOfTime(int page, Parameter.TIME time) {
         switch (time){
             case DAY:
-                responseApiResponse=executeCall(INTERFACE.getAllVideosOfTime(page,"t"));
-                break;
+                return executeCall(INTERFACE.getAllVideosOfTime(page,"t"));
+
             case WEEK:
-                responseApiResponse=executeCall(INTERFACE.getAllVideosOfTime(page,"w"));
-                break;
+                return executeCall(INTERFACE.getAllVideosOfTime(page,"w"));
+
             case MONTH:
-                responseApiResponse=executeCall(INTERFACE.getAllVideosOfTime(page,"m"));
-                break;
+                return executeCall(INTERFACE.getAllVideosOfTime(page,"m"));
+
             case FOREVER:
-                responseApiResponse=executeCall(INTERFACE.getAllVideosOfTime(page,"a"));
-                break;
-            default:
-                responseApiResponse=executeCall(INTERFACE.getAllVideosOfTime(page,"a"));
+                return executeCall(INTERFACE.getAllVideosOfTime(page,"a"));
         }
-        return responseApiResponse;
+        return null;
     }
 
-    public ApiResponse<VideosResponse> getAllVideosOfType(int page, Parameter.TYPE type) {
+    public JsonRootPojo<VideosResponse<Video>> getAllVideosOfType(int page, Parameter.TYPE type) {
         switch(type){
             case PUBLIC:
-                responseApiResponse=executeCall(INTERFACE.getAllVideosOfType(page,"public"));
-                break;
+                return executeCall(INTERFACE.getAllVideosOfType(page,"public"));
+
             case PRIMARY:
-                responseApiResponse=executeCall(INTERFACE.getAllVideosOfType(page,"private"));
-                break;
+                return executeCall(INTERFACE.getAllVideosOfType(page,"private"));
         }
-        return responseApiResponse;
+        return null;
     }
 
-    public ApiResponse<VideosResponse> getAllVideosOfCHID(int page, Parameter.CHID chid) {
+    public JsonRootPojo<VideosResponse<Video>> getAllVideosOfCHID(int page, Parameter.CHID chid) {
         switch (chid){
             case ONE:
-                responseApiResponse=executeCall(INTERFACE.getAllVideosOfCHID(page,"1"));
-                break;
+                return executeCall(INTERFACE.getAllVideosOfCHID(page,"1"));
+
             case TWO:
-                responseApiResponse=executeCall(INTERFACE.getAllVideosOfCHID(page,"2"));
-                break;
+                return executeCall(INTERFACE.getAllVideosOfCHID(page,"2"));
+
             case THREE:
-                responseApiResponse=executeCall(INTERFACE.getAllVideosOfCHID(page,"3"));
-                break;
+                return executeCall(INTERFACE.getAllVideosOfCHID(page,"3"));
         }
-        return responseApiResponse;
+        return null;
     }
 
-    public ApiResponse<VideoResponse> getVideoForVID(int vid) {
+    public JsonRootPojo<VideoResponse<Video>> getVideoForVID(int vid) {
         return executeCall(INTERFACE.getVideoForVID(vid));
     }
 

@@ -1,4 +1,4 @@
-package pojo.collections;
+package pojo.collection;
 
 import lombok.Data;
 import lombok.experimental.Accessors;
