@@ -3,6 +3,7 @@ package schema;
 import api.ApiServiceFactory;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 import pojo.videos.Video;
 import java.sql.Date;
@@ -20,57 +21,61 @@ public class SqlTest {
 
     public static void insert(){
        final ExecutorService executorService= Executors.newFixedThreadPool(5);
-        executorService.submit(()->{
-            try(Session session=sessionFactory.openSession()){
+
+
 
                 /**
                  * page count
                  */
-                for (int i = 0; i <1000 ; i++) {
+        executorService.submit(() -> {
+            Session session=sessionFactory.openSession();
+                    for (int i = 0; i < 1000; i++) {
 
-                    List<Video> list= ApiServiceFactory
-                            .getService()
-                            .getVideosOfLimit(i,50)
-                            .getResponse()
-                            .getVideos();
+                        List<Video> list = ApiServiceFactory
+                                .getService()
+                                .getVideosOfLimit(i, 250)
+                                .getResponse()
+                                .getVideos();
 
-                    try{
-                        session.beginTransaction();
-                        for (Video video : list) {
+                        try {
 
-                            VideoInfo videoInfo=new VideoInfo();
-                            videoInfo.setVid(video.getVid())
-                                    .setUid(video.getUid())
-                                    .setAddtime(new Date(video.getAddtime()))
-                                    .setChannel(video.getChannel())
-                                    .setDislikes(video.getDislikes())
-                                    .setEmbeddedUrl(video.getEmbedded_url())
-                                    .setDuration(video.getDuration())
-                                    .setFramerate(video.getFramerate())
-                                    .setKeyword(video.getKeyword())
-                                    .setPreviewVideoUrl(video.getPreview_video_url())
-                                    .setLikes(video.getLikes())
-                                    .setViewnumber(video.getViewnumber())
-                                    .setPrivatee((byte)1)
-                                    .setHd((byte)1)
-                                    .setTitle(video.getTitle())
-                                    .setPriviewUrl(video.getPreview_url())
-                                    .setVideoUrl(video.getVideo_url());
-                            System.out.println(video);
-                            session.save(videoInfo);
+                            if (!list.isEmpty()){
+                                for (Video video : list) {
 
+                                    VideoInfo videoInfo = new VideoInfo();
+                                    videoInfo.setVid(video.getVid())
+                                            .setUid(video.getUid())
+                                            .setAddtime(new Date(video.getAddtime()))
+                                            .setChannel(video.getChannel())
+                                            .setDislikes(video.getDislikes())
+                                            .setEmbeddedUrl(video.getEmbedded_url())
+                                            .setDuration(video.getDuration())
+                                            .setFramerate(video.getFramerate())
+                                            .setKeyword(video.getKeyword())
+                                            .setPreviewVideoUrl(video.getPreview_video_url())
+                                            .setLikes(video.getLikes())
+                                            .setViewnumber(video.getViewnumber())
+                                            .setHd(video.isHd())
+                                            .setPrivatee(video.isPrivatee())
+                                            .setTitle(video.getTitle())
+                                            .setPriviewUrl(video.getPreview_url())
+                                            .setVideoUrl(video.getVideo_url());
+                                    System.out.println(video);
+                                    session.save(videoInfo);
+                                    session.flush();
+                                }
+
+                            }
+
+                        } catch (Exception e) {
+                            e.printStackTrace();
                         }
-                        session.getTransaction().commit();
-
-                    }catch (Exception e){
-                        e.printStackTrace();
+                        System.out.println("页数：" + i);
                     }
-                    System.out.println("页数："+i);
-                }
+            session.close();
 
-            }catch (Exception e){
-                e.printStackTrace();
-            }
-        });
+                });
+
+
     }
 }

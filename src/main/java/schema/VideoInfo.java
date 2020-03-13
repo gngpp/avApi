@@ -14,7 +14,7 @@ public class VideoInfo {
     private String channel;
     private Double duration;
     private Double framerate;
-    private Byte hd;
+    private boolean hd;
     private Date addtime;
     private Integer viewnumber;
     private Integer likes;
@@ -23,7 +23,7 @@ public class VideoInfo {
     private String embeddedUrl;
     private String priviewUrl;
     private String previewVideoUrl;
-    private Byte privatee;
+    private boolean privatee;
 
     @Id
     @Column(name = "vid", nullable = false)
@@ -104,11 +104,11 @@ public class VideoInfo {
 
     @Basic
     @Column(name = "hd", nullable = true)
-    public Byte getHd() {
+    public boolean getHd() {
         return hd;
     }
 
-    public VideoInfo setHd(Byte hd) {
+    public VideoInfo setHd(boolean hd) {
         this.hd = hd;
         return this;
     }
@@ -203,11 +203,11 @@ public class VideoInfo {
 
     @Basic
     @Column(name = "privatee", nullable = true)
-    public Byte getPrivatee() {
+    public boolean getPrivatee() {
         return privatee;
     }
 
-    public VideoInfo setPrivatee(Byte privatee) {
+    public VideoInfo setPrivatee(boolean privatee) {
         this.privatee = privatee;
         return this;
     }

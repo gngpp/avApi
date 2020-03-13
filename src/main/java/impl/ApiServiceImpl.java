@@ -35,7 +35,7 @@ public class ApiServiceImpl implements ApiService {
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(new OkHttpClient.Builder().
                         proxy(new Proxy(Proxy.Type.HTTP,new InetSocketAddress("localhost",1087)))
-                        .connectTimeout(10, TimeUnit.SECONDS)
+                        .connectTimeout(20, TimeUnit.SECONDS)
                         .build())
                 .build();
         INTERFACE=retrofit.create(ApiHttpInterface.class);
