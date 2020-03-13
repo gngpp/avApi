@@ -1,6 +1,7 @@
 package impl;
 
 import inteface.ApiHttpInterface;
+import inteface.ApiService;
 import inteface.parameter.Parameter;
 import okhttp3.OkHttpClient;
 import pojo.JsonRootPojo;

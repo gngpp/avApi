@@ -1,4 +1,4 @@
-package impl;
+package inteface;
 
 import inteface.parameter.Parameter;
 import jdk.nashorn.internal.scripts.JS;

@@ -269,5 +269,15 @@ public class Test {
         list.forEach(System.out::println);
     }
 
+    @org.junit.Test
+    public void videosOfSearchJAVsByLimitTest(){
+        List<Video> list=ApiServiceFactory
+                .getService()
+                .getVideosOfSearchJAVsByLimit("少女",0,2)
+                .getResponse()
+                .getVideos();
+        list.forEach(System.out::println);
+    }
 
+    
 }

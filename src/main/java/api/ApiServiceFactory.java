@@ -1,7 +1,7 @@
 package api;
 
 import impl.ApiServiceImpl;
-import impl.ApiService;
+import inteface.ApiService;
 /**
  * Create by Ant on 2020/3/12 4:34 下午
  * amd
