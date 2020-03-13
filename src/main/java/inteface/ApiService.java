@@ -28,7 +28,7 @@ public interface ApiService {
 
      JsonRootPojo<VideosResponse<Video>> getVideosOfType(int page, Parameter.TYPE type);
 
-     JsonRootPojo<VideosResponse<Video>> getVideosOfCHID(int page, int chid);
+     JsonRootPojo<VideosResponse<Video>> getVideosOfCHID(int page, Parameter.CHID chid);
 
      JsonRootPojo<VideoResponse<Video>>  getVideoForVID(int vid);
 
@@ -40,7 +40,7 @@ public interface ApiService {
 
      JsonRootPojo<VideosResponse<Video>> getVideosOfSearchByType(String query,int page,Parameter.TYPE type);
 
-     JsonRootPojo<VideosResponse<Video>> getVideosOfSearchByCHID(String query,int page,int chid);
+     JsonRootPojo<VideosResponse<Video>> getVideosOfSearchByCHID(String query,int page,Parameter.CHID chid);
 
 
 

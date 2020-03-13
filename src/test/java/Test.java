@@ -1,4 +1,5 @@
 import api.ApiServiceFactory;
+import ch.qos.logback.core.net.SyslogOutputStream;
 import inteface.parameter.Parameter;
 import pojo.videos.Video;
 import pojo.categories.Category;
@@ -151,21 +152,21 @@ public class Test {
     public void videoOfCHIDTest(){
         List<Video> list1=ApiServiceFactory
                 .getService()
-                .getVideosOfCHID(4, 2)
+                .getVideosOfCHID(4, Parameter.CHID.D3)
                 .getResponse()
                 .getVideos();
         list1.forEach(System.out::println);
         
         List<Video> list2=ApiServiceFactory
                 .getService()
-                .getVideosOfCHID(5, 3)
+                .getVideosOfCHID(5, Parameter.CHID.ANAL)
                 .getResponse()
                 .getVideos();
         list2.forEach(System.out::println);
         
         List<Video> list3=ApiServiceFactory
                 .getService()
-                .getVideosOfCHID(2, 4)
+                .getVideosOfCHID(2, Parameter.CHID.ASIAN)
                 .getResponse()
                 .getVideos();
         list3.forEach(System.out::println);
@@ -196,21 +197,21 @@ public class Test {
     public void vidoesOfSearchByDescTest(){
         List<Video> list1=ApiServiceFactory
                 .getService()
-                .getVideosOfSearchByDesc("人妻",1,Parameter.DESC.LATEST)
+                .getVideosOfSearchByDesc("人妻",40,Parameter.DESC.LATEST)
                 .getResponse()
                 .getVideos();
         list1.forEach(System.out::println);
 
         List<Video> list2=ApiServiceFactory
                 .getService()
-                .getVideosOfSearchByDesc("人妻",1,Parameter.DESC.MOST_FAVOURED)
+                .getVideosOfSearchByDesc("人妻",20,Parameter.DESC.MOST_FAVOURED)
                 .getResponse()
                 .getVideos();
         list2.forEach(System.out::println);
 
         List<Video> list3=ApiServiceFactory
                 .getService()
-                .getVideosOfSearchByDesc("人妻",1,Parameter.DESC.LAST_VIEWED)
+                .getVideosOfSearchByDesc("人妻",10,Parameter.DESC.LAST_VIEWED)
                 .getResponse()
                 .getVideos();
         list3.forEach(System.out::println);
@@ -224,16 +225,49 @@ public class Test {
 
         List<Video> list5=ApiServiceFactory
                 .getService()
-                .getVideosOfSearchByDesc("人妻",1,Parameter.DESC.LONGEST)
+                .getVideosOfSearchByDesc("人妻",30,Parameter.DESC.LONGEST)
                 .getResponse()
                 .getVideos();
         list5.forEach(System.out::println);
 
         List<Video> list6=ApiServiceFactory
                 .getService()
-                .getVideosOfSearchByDesc("人妻",1,Parameter.DESC.TOP_RATED)
+                .getVideosOfSearchByDesc("人妻",20,Parameter.DESC.TOP_RATED)
                 .getResponse()
                 .getVideos();
         list6.forEach(System.out::println);
     }
+
+    @org.junit.Test
+    public void videosOfSearchByTimeTest(){
+        List<Video> list1=ApiServiceFactory
+                .getService()
+                .getVideosOfSearchByTime("人妻",10, Parameter.TIME.FOREVER)
+                .getResponse()
+                .getVideos();
+        list1.forEach(System.out::println);
+    }
+
+    @org.junit.Test
+    public void videosOfSearchByTypeTest(){
+        List<Video> list=ApiServiceFactory
+                .getService()
+                .getVideosOfSearchByType("人妻",0, Parameter.TYPE.PUBLIC)
+                .getResponse()
+                .getVideos();
+        list.forEach(System.out::println);
+
+    }
+
+    @org.junit.Test
+    public void videosOfSearchByCHID(){
+        List<Video> list=ApiServiceFactory
+                .getService()
+                .getVideosOfSearchByCHID("少女",1, Parameter.CHID.ASIAN)
+                .getResponse()
+                .getVideos();
+        list.forEach(System.out::println);
+    }
+
+
 }

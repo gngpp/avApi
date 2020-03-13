@@ -70,8 +70,8 @@ public class ApiServiceImpl implements ApiService {
         return executeCall(INTERFACE.getVideosOfType(page,type.value));
     }
 
-    public JsonRootPojo<VideosResponse<Video>> getVideosOfCHID(int page, int chid) {
-        return executeCall(INTERFACE.getVideosOfCHID(page,chid));
+    public JsonRootPojo<VideosResponse<Video>> getVideosOfCHID(int page, Parameter.CHID chid) {
+        return executeCall(INTERFACE.getVideosOfCHID(page,chid.value));
     }
 
     public JsonRootPojo<VideoResponse<Video>> getVideoForVID(int vid) {
@@ -99,8 +99,8 @@ public class ApiServiceImpl implements ApiService {
     }
 
     @Override
-    public JsonRootPojo<VideosResponse<Video>> getVideosOfSearchByCHID(String query, int page, int chid) {
-        return executeCall(INTERFACE.getVideosOfSearchByCHID(query,page, chid));
+    public JsonRootPojo<VideosResponse<Video>> getVideosOfSearchByCHID(String query, int page, Parameter.CHID chid) {
+        return executeCall(INTERFACE.getVideosOfSearchByCHID(query,page, chid.value));
     }
 
 

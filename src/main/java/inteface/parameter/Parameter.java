@@ -63,9 +63,16 @@ public class Parameter {
     }
 
     public enum CHID{
-        AV_ACTRESS(1),
-        JAPAN_AV(2),
-        ;
+
+        AV_ACTRESS(1), AV_JAPAN(2), NO_CORRECTION(3),
+        GIRL(4), AMATEUR(5), ANAL(6),
+        BREASTS(7), COSPLAY(8), SCHOOL_LIFE(9),
+        ONE_WIFE(10), RIPE_FEMALE(11), SM(12),
+        CHINA(13), HONG_KONG(14), JAPAN(15),
+        KOREA(16), TAIWAN(17), ASIAN(18),
+        WESTERN(19), D3(20), VR(21),
+        IDOL(22), MOVIE_18(23), ANIME(24);
+
         public int value;
         CHID(int value){
             this.value=value;
