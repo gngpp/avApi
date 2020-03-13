@@ -58,55 +58,16 @@ public class ApiServiceImpl implements ApiService {
 
     public JsonRootPojo<VideosResponse<Video>> getVideosOfDesc(int page, Parameter.DESC desc) {
 
-        switch(desc) {
-            case LATEST:
-                return executeCall(INTERFACE.getVideosOfDesc(page, "mr"));
-
-            case LONGEST:
-                return executeCall(INTERFACE.getVideosOfDesc(page, "lg"));
-            case TOP_RATED:
-                return executeCall(INTERFACE.getVideosOfDesc(page, "tr"));
-
-            case LAST_VIEWED:
-                return executeCall(INTERFACE.getVideosOfDesc(page, "bw"));
-
-            case MOST_VIEWED:
-                return executeCall(INTERFACE.getVideosOfDesc(page, "mv"));
-
-            case MOST_FAVOURED:
-                return executeCall(INTERFACE.getVideosOfDesc(page, "tf"));
-
-        }
-        return null;
+        return executeCall(INTERFACE.getVideosOfDesc(page,desc.value));
 
     }
 
     public JsonRootPojo<VideosResponse<Video>> getVideosOfTime(int page, Parameter.TIME time) {
-        switch (time){
-            case DAY:
-                return executeCall(INTERFACE.getVideosOfTime(page,"t"));
-
-            case WEEK:
-                return executeCall(INTERFACE.getVideosOfTime(page,"w"));
-
-            case MONTH:
-                return executeCall(INTERFACE.getVideosOfTime(page,"m"));
-
-            case FOREVER:
-                return executeCall(INTERFACE.getVideosOfTime(page,"a"));
-        }
-        return null;
+        return executeCall(INTERFACE.getVideosOfTime(page,time.value));
     }
 
     public JsonRootPojo<VideosResponse<Video>> getVideosOfType(int page, Parameter.TYPE type) {
-        switch(type){
-            case PUBLIC:
-                return executeCall(INTERFACE.getVideosOfType(page,"public"));
-
-            case PRIMARY:
-                return executeCall(INTERFACE.getVideosOfType(page,"private"));
-        }
-        return null;
+        return executeCall(INTERFACE.getVideosOfType(page,type.value));
     }
 
     public JsonRootPojo<VideosResponse<Video>> getVideosOfCHID(int page, int chid) {
@@ -124,59 +85,17 @@ public class ApiServiceImpl implements ApiService {
 
     @Override
     public JsonRootPojo<VideosResponse<Video>> getVideosOfSearchByDesc(String query, int page, Parameter.DESC desc) {
-        switch (desc){
-            case LATEST:
-               return executeCall(INTERFACE.getVideosOfSearchByDesc(query,page,"mr"));
-
-            case LONGEST:
-               return  executeCall(INTERFACE.getVideosOfSearchByDesc(query,page,"lg"));
-
-            case TOP_RATED:
-                return executeCall(INTERFACE.getVideosOfSearchByDesc(query,page,"tr"));
-
-            case LAST_VIEWED:
-                return executeCall(INTERFACE.getVideosOfSearchByDesc(query,page,"bw"));
-
-            case MOST_VIEWED:
-                return executeCall(INTERFACE.getVideosOfSearchByDesc(query,page,"mv"));
-
-            case MOST_FAVOURED:
-                return  executeCall(INTERFACE.getVideosOfSearchByDesc(query,page,"tf"));
-        }
-        return null;
+        return executeCall(INTERFACE.getVideosOfSearchByDesc(query,page,desc.value));
     }
 
     @Override
     public JsonRootPojo<VideosResponse<Video>> getVideosOfSearchByTime(String query, int page, Parameter.TIME time) {
-
-        switch (time){
-            case DAY:
-                return executeCall(INTERFACE.getVideosOfSearchByTime(query,page,"t"));
-
-            case WEEK:
-                return executeCall(INTERFACE.getVideosOfSearchByTime(query,page,"w"));
-
-            case MONTH:
-                return executeCall(INTERFACE.getVideosOfSearchByTime(query,page,"m"));
-
-            case FOREVER:
-                return executeCall(INTERFACE.getVideosOfSearchByTime(query,page,"a"));
-        }
-        return null;
+        return executeCall(INTERFACE.getVideosOfSearchByTime(query,page,time.value));
     }
 
     @Override
     public JsonRootPojo<VideosResponse<Video>> getVideosOfSearchByType(String query, int page, Parameter.TYPE type) {
-
-        switch (type){
-            case PUBLIC:
-                return executeCall(INTERFACE.getVideosOfSearchByType(query,page,"public"));
-
-            case PRIMARY:
-                return executeCall(INTERFACE.getVideosOfSearchByType(query,page,"private"));
-
-        }
-        return null;
+        return executeCall(INTERFACE.getVideosOfSearchByType(query,page,type.value));
     }
 
     @Override

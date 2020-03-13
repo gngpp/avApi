@@ -1,5 +1,7 @@
 package inteface.parameter;
 
+import lombok.Data;
+
 /**
  * 请求url参数
  * Create by Ant on 2020/3/12 10:39 下午
@@ -10,31 +12,64 @@ public class Parameter {
     /**
      *影片订购方法,DESC命令
      */
+
     public enum DESC{
-        LAST_VIEWED,    //体重
-        LATEST,         //最新
-        MOST_VIEWED,    //最受欢迎
-        TOP_RATED,      //最高评分
-        MOST_FAVOURED,  //最喜欢
-        LONGEST         //最长
+
+        LAST_VIEWED("bw"),    //体重
+        LATEST("mr"),         //最新
+        MOST_VIEWED("mv"),    //最受欢迎
+        TOP_RATED("tr"),      //最高评分
+        MOST_FAVOURED("tf"),  //最喜欢
+        LONGEST("lg");         //最长
+
+        public String value;
+
+        DESC(String value){
+            this.value=value;
+        }
+
     }
 
     /**
      * 大体时间，超过制定年龄的视频不会显示
      */
     public enum TIME{
-        DAY,            //1天
-        WEEK,           //1周
-        MONTH,          //1个月
-        FOREVER         //永远
+
+        DAY("t"),             //1天
+        WEEK("w"),            //1周
+        MONTH("m"),           //1个月
+        FOREVER("a");         //永远
+
+        public String value;
+
+        TIME(String value){
+            this.value=value;
+        }
     }
 
     /**
      * 显示私人或公共视频
      */
     public enum TYPE{
-        PUBLIC,         //公共
-        PRIMARY         //私人
+
+        PUBLIC("public"),         //公共
+        PRIMARY("private");      //私人
+
+        public String value;
+
+        TYPE(String value){
+            this.value=value;
+        }
+    }
+
+    public enum CHID{
+        AV_ACTRESS(1),
+        JAPAN_AV(2),
+        ;
+        public int value;
+        CHID(int value){
+            this.value=value;
+        }
     }
 
 }
