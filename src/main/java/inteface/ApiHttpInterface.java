@@ -33,19 +33,19 @@ public interface ApiHttpInterface {
 
     @GET("/v1/videos/{page}")
     Call<JsonRootPojo<VideosResponse<Video>>> getVideosOfDesc(@Path("page")int page,
-                                                              @Query("o")String param);
+                                                              @Query("o")String desc);
 
     @GET("/v1/videos/{page}")
     Call<JsonRootPojo<VideosResponse<Video>>> getVideosOfTime(@Path("page")int page,
-                                                              @Query("t")String param);
+                                                              @Query("t")String time);
 
     @GET("/v1/videos/{page}")
     Call<JsonRootPojo<VideosResponse<Video>>> getVideosOfType(@Path("page")int page,
-                                                              @Query("type")String param);
+                                                              @Query("type")String type);
 
     @GET("/v1/videos/{page}")
     Call<JsonRootPojo<VideosResponse<Video>>> getVideosOfCHID(@Path("page") int page,
-                                                              @Query("c")String param);
+                                                              @Query("c")int chid);
     @GET("/v1/video/{vid}")
     Call<JsonRootPojo<VideoResponse<Video>>> getVideoForVID(@Path("vid")int vid);
 
@@ -57,20 +57,20 @@ public interface ApiHttpInterface {
     @GET("/v1/search/{query}/{page}")
     Call<JsonRootPojo<VideosResponse<Video>>> getVideosOfSearchByDesc(@Path("query")String query,
                                                                      @Path("page")int page,
-                                                                     @Query("o")Parameter.DESC desc);
+                                                                     @Query("o")String desc);
 
     @GET("/v1/search/{query}/{page}")
     Call<JsonRootPojo<VideosResponse<Video>>> getVideosOfSearchByType(@Path("query")String query,
                                                                       @Path("page")int page,
-                                                                      @Query("type")Parameter.TYPE type);
+                                                                      @Query("type")String type);
 
     @GET("/v1/search/{query}/{page}")
     Call<JsonRootPojo<VideosResponse<Video>>> getVideosOfSearchByTime(@Path("query")String query,
                                                                       @Path("page")int page,
-                                                                      @Query("t")Parameter.TIME time);
+                                                                      @Query("t")String time);
 
     @GET("/v1/search/{query}/{page}")
     Call<JsonRootPojo<VideosResponse<Video>>> getVideosOfSearchByCHID(@Path("query")String query,
                                                                       @Path("page")int page,
-                                                                      @Query("c")Parameter.CHID chid);
+                                                                      @Query("c")int chid);
 }

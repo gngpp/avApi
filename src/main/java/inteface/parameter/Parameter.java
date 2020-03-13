@@ -37,12 +37,4 @@ public class Parameter {
         PRIMARY         //私人
     }
 
-    /**
-     * 视频类别内的视频
-     */
-    public enum CHID{
-        ONE,            //有效视频类别的CHID整数1
-        TWO,            //有效视频类别的CHID整数2
-        THREE           //有效视频类别的CHID整数3
-    }
 }

@@ -16,6 +16,7 @@ import retrofit2.Call;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+import javax.swing.text.html.HTMLDocument;
 import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.net.Proxy;
@@ -108,18 +109,8 @@ public class ApiServiceImpl implements ApiService {
         return null;
     }
 
-    public JsonRootPojo<VideosResponse<Video>> getVideosOfCHID(int page, Parameter.CHID chid) {
-        switch (chid){
-            case ONE:
-                return executeCall(INTERFACE.getVideosOfCHID(page,"1"));
-
-            case TWO:
-                return executeCall(INTERFACE.getVideosOfCHID(page,"2"));
-
-            case THREE:
-                return executeCall(INTERFACE.getVideosOfCHID(page,"3"));
-        }
-        return null;
+    public JsonRootPojo<VideosResponse<Video>> getVideosOfCHID(int page, int chid) {
+        return executeCall(INTERFACE.getVideosOfCHID(page,chid));
     }
 
     public JsonRootPojo<VideoResponse<Video>> getVideoForVID(int vid) {
@@ -128,27 +119,69 @@ public class ApiServiceImpl implements ApiService {
 
     @Override
     public JsonRootPojo<VideosResponse<Video>> getVideosOfSearchByLimit(String query, int page, int limit) {
-        return executeCall(INTERFACE.get)
+        return executeCall(INTERFACE.getVideosOfSearchBylimit(query,page,limit));
     }
 
     @Override
     public JsonRootPojo<VideosResponse<Video>> getVideosOfSearchByDesc(String query, int page, Parameter.DESC desc) {
+        switch (desc){
+            case LATEST:
+               return executeCall(INTERFACE.getVideosOfSearchByDesc(query,page,"mr"));
+
+            case LONGEST:
+               return  executeCall(INTERFACE.getVideosOfSearchByDesc(query,page,"lg"));
+
+            case TOP_RATED:
+                return executeCall(INTERFACE.getVideosOfSearchByDesc(query,page,"tr"));
+
+            case LAST_VIEWED:
+                return executeCall(INTERFACE.getVideosOfSearchByDesc(query,page,"bw"));
+
+            case MOST_VIEWED:
+                return executeCall(INTERFACE.getVideosOfSearchByDesc(query,page,"mv"));
+
+            case MOST_FAVOURED:
+                return  executeCall(INTERFACE.getVideosOfSearchByDesc(query,page,"tf"));
+        }
         return null;
     }
 
     @Override
     public JsonRootPojo<VideosResponse<Video>> getVideosOfSearchByTime(String query, int page, Parameter.TIME time) {
+
+        switch (time){
+            case DAY:
+                return executeCall(INTERFACE.getVideosOfSearchByTime(query,page,"t"));
+
+            case WEEK:
+                return executeCall(INTERFACE.getVideosOfSearchByTime(query,page,"w"));
+
+            case MONTH:
+                return executeCall(INTERFACE.getVideosOfSearchByTime(query,page,"m"));
+
+            case FOREVER:
+                return executeCall(INTERFACE.getVideosOfSearchByTime(query,page,"a"));
+        }
         return null;
     }
 
     @Override
     public JsonRootPojo<VideosResponse<Video>> getVideosOfSearchByType(String query, int page, Parameter.TYPE type) {
+
+        switch (type){
+            case PUBLIC:
+                return executeCall(INTERFACE.getVideosOfSearchByType(query,page,"public"));
+
+            case PRIMARY:
+                return executeCall(INTERFACE.getVideosOfSearchByType(query,page,"private"));
+
+        }
         return null;
     }
 
     @Override
-    public JsonRootPojo<VideosResponse<Video>> getVideosOfSearchByCHID(String query, int page, Parameter.CHID chid) {
-        return null;
+    public JsonRootPojo<VideosResponse<Video>> getVideosOfSearchByCHID(String query, int page, int chid) {
+        return executeCall(INTERFACE.getVideosOfSearchByCHID(query,page, chid));
     }
 
 
