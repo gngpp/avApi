@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="av_video@localhost" uuid="bac97981-e1af-4862-8801-2b03f4fe8ccc">
+    <data-source source="LOCAL" name="hibernate.cfg.xml/Hibernate" uuid="f9443db3-3ec1-42be-ab66-285056be39f2">
       <driver-ref>mysql.8</driver-ref>
       <synchronize>true</synchronize>
+      <imported>true</imported>
+      <remarks>Hibernate
+
+/Users/ant/IdeaProjects/avApi/src/main/resources/hibernate.cfg.xml</remarks>
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
       <jdbc-url>jdbc:mysql://localhost:3306/av_video</jdbc-url>
     </data-source>

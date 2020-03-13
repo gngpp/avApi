@@ -27,7 +27,7 @@
             <column name="framerate" sql-type="double(255)" precision="255" not-null="true"/>
         </property>
         <property name="hd">
-            <column name="hd" sql-type="tinyint(1)" not-null="true"/>
+            <column name="hd" sql-type="bit(1)" not-null="true"/>
         </property>
         <property name="addtime">
             <column name="addtime" sql-type="date" not-null="true"/>
@@ -54,7 +54,7 @@
             <column name="preview_video_url" sql-type="varchar(255)" not-null="true"/>
         </property>
         <property name="privatee">
-            <column name="privatee" sql-type="tinyint(1)" not-null="true"/>
+            <column name="privatee" sql-type="bit(1)" not-null="true"/>
         </property>
     </class>
 </hibernate-mapping>

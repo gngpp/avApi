@@ -29,17 +29,29 @@ public class SqlTest {
                  */
         executorService.submit(() -> {
             Session session=sessionFactory.openSession();
-                    for (int i = 0; i < 1000; i++) {
 
-                        List<Video> list = ApiServiceFactory
-                                .getService()
-                                .getVideosOfLimit(i, 250)
-                                .getResponse()
-                                .getVideos();
+                    for (int i = 0; i < 3000; i++) {
+
+                        List<Video> list = null;
+                        try {
+                            list = ApiServiceFactory
+                                    .getService()
+                                    .getVideosOfLimit(i, 50)
+                                    .getResponse()
+                                    .getVideos();
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            list = ApiServiceFactory
+                                    .getService()
+                                    .getVideosOfLimit(i, 50)
+                                    .getResponse()
+                                    .getVideos();
+                        }
 
                         try {
 
-                            if (!list.isEmpty()){
+                            if (!list.isEmpty()) {
+                                final Transaction transaction = session.beginTransaction();
                                 for (Video video : list) {
 
                                     VideoInfo videoInfo = new VideoInfo();
@@ -62,9 +74,9 @@ public class SqlTest {
                                             .setVideoUrl(video.getVideo_url());
                                     System.out.println(video);
                                     session.save(videoInfo);
-                                    session.flush();
                                 }
-
+                                transaction.commit();
+                                session.clear();
                             }
 
                         } catch (Exception e) {
@@ -72,9 +84,10 @@ public class SqlTest {
                         }
                         System.out.println("页数：" + i);
                     }
-            session.close();
 
+                    session.close();
                 });
+
 
 
     }
