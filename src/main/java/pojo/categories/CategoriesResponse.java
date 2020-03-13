@@ -1,4 +1,4 @@
-package pojo.avtype;
+package pojo.categories;
 
 import lombok.Data;
 import lombok.experimental.Accessors;

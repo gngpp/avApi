@@ -1,13 +1,13 @@
 package inteface;
 
 import pojo.JsonRootPojo;
-import pojo.av.Video;
-import pojo.av.VideoResponse;
-import pojo.av.VideosResponse;
-import pojo.avtype.Category;
-import pojo.avtype.CategoriesResponse;
-import pojo.collection.CollectionsResponse;
-import pojo.collection.Collection;
+import pojo.videos.Video;
+import pojo.videos.VideoResponse;
+import pojo.videos.VideosResponse;
+import pojo.categories.Category;
+import pojo.categories.CategoriesResponse;
+import pojo.collections.CollectionsResponse;
+import pojo.collections.Collection;
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Path;

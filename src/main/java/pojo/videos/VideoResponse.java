@@ -1,4 +1,4 @@
-package pojo.av;
+package pojo.videos;
 
 import lombok.Data;
 import lombok.experimental.Accessors;

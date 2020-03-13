@@ -2,13 +2,13 @@ package inteface;
 
 import inteface.parameter.Parameter;
 import pojo.JsonRootPojo;
-import pojo.av.Video;
-import pojo.av.VideoResponse;
-import pojo.av.VideosResponse;
-import pojo.avtype.Category;
-import pojo.avtype.CategoriesResponse;
-import pojo.collection.CollectionsResponse;
-import pojo.collection.Collection;
+import pojo.videos.Video;
+import pojo.videos.VideoResponse;
+import pojo.videos.VideosResponse;
+import pojo.categories.Category;
+import pojo.categories.CategoriesResponse;
+import pojo.collections.CollectionsResponse;
+import pojo.collections.Collection;
 
 /**
  * Create by Ant on 2020/3/12 4:36 下午
