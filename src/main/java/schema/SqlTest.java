@@ -42,6 +42,7 @@ public class SqlTest {
         for (int i = 0; i < 2899; i++) {
             executorService.submit(new Job(i,sqlSessionFactory.openSession(),completeCheck));
         }
+        executorService.shutdown();
     }
 
 }

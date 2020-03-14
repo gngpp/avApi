@@ -88,6 +88,7 @@ public class Job implements Runnable {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        completeCheck.add(pageNumber);
         sqlSession.close();
     }
 }
