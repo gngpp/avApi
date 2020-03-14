@@ -10,8 +10,10 @@ import schema.entity.VideoInfo;
 import schema.mapper.VideoInfoDao;
 import java.io.InputStream;
 import java.sql.*;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -35,9 +37,10 @@ public class SqlTest {
 
     public static void insert(){
         SqlSessionFactory sqlSessionFactory=getSqlSessionFactory();
-        final ExecutorService executorService = Executors.newFixedThreadPool(7);
+        final ExecutorService executorService = Executors.newFixedThreadPool(12);
+        final Set<Integer> completeCheck= Collections.synchronizedSet(new HashSet<Integer>());
         for (int i = 0; i < 2899; i++) {
-            executorService.submit(new Job(i,sqlSessionFactory.openSession(),new HashSet<Integer>()));
+            executorService.submit(new Job(i,sqlSessionFactory.openSession(),completeCheck));
         }
     }
 

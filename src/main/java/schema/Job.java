@@ -9,6 +9,7 @@ import schema.entity.VideoInfo;
 import schema.mapper.VideoInfoDao;
 
 import java.sql.Date;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Set;
@@ -59,6 +60,7 @@ public class Job implements Runnable {
 
         try {
             if(!list.isEmpty()){
+                List<VideoInfo> list1=new ArrayList<>();
                 for (Video video : list) {
                     VideoInfo videoInfo = new VideoInfo();
                     videoInfo.setVid(video.getVid())
@@ -78,14 +80,14 @@ public class Job implements Runnable {
                             .setTitle(video.getTitle())
                             .setPriviewUrl(video.getPreview_url())
                             .setVideoUrl(video.getVideo_url());
-                    mapper.insertOne(videoInfo);
+                    list1.add(videoInfo);
                 }
+                mapper.batchInsert(list1);
+                sqlSession.commit(true);
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-        sqlSession.commit(true);
-        sqlSession.clearCache();
         sqlSession.close();
     }
 }
