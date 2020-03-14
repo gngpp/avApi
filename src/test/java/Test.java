@@ -95,7 +95,7 @@ public class Test {
     public void videoOfLimitTest(){
         List<Video> list=ApiServiceFactory
                 .getService()
-                .getVideosOfLimit(3,30)
+                .getVideosOfLimit(0,50)
                 .getResponse()
                 .getVideos();
         list.forEach(System.out::println);
