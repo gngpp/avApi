@@ -1,9 +1,7 @@
-package schema.mapper;
-
+package schema.dao;
 
 import org.apache.ibatis.annotations.Param;
 import schema.entity.VideoInfo;
-
 import java.util.List;
 
 /**

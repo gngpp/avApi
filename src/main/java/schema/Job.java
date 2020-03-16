@@ -1,13 +1,10 @@
 package schema;
 
 import api.ApiServiceFactory;
-import com.sun.xml.fastinfoset.algorithm.FloatEncodingAlgorithm;
 import org.apache.ibatis.session.SqlSession;
-import org.hibernate.Session;
 import pojo.videos.Video;
+import schema.dao.VideoInfoDao;
 import schema.entity.VideoInfo;
-import schema.mapper.VideoInfoDao;
-
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.Collections;

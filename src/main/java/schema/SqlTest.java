@@ -1,22 +1,14 @@
 package schema;
 
-import api.ApiServiceFactory;
 import org.apache.ibatis.io.Resources;
-import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
-import pojo.videos.Video;
-import schema.entity.VideoInfo;
-import schema.mapper.VideoInfoDao;
 import java.io.InputStream;
-import java.sql.*;
 import java.util.Collections;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.util.concurrent.atomic.AtomicBoolean;
 
 public class SqlTest {
 

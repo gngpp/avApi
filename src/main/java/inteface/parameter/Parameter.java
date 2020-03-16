@@ -1,7 +1,5 @@
 package inteface.parameter;
 
-import lombok.Data;
-
 /**
  * 请求url参数
  * Create by Ant on 2020/3/12 10:39 下午

@@ -15,7 +15,6 @@ import pojo.collections.Collection;
 import retrofit2.Call;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
-
 import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.net.Proxy;
