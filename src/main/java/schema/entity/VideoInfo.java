@@ -7,7 +7,7 @@ package schema.entity;
  * @author makejava
  * @since 2020-03-14 02:10:50
  */
-@SuppressWarnings("serial")
+
 public class VideoInfo {
     public Integer getId() {
         return id;

@@ -29,7 +29,7 @@ public class SqlTest {
 
     public static void insert(){
         SqlSessionFactory sqlSessionFactory=getSqlSessionFactory();
-        final ExecutorService executorService = Executors.newFixedThreadPool(12);
+        final ExecutorService executorService = Executors.newFixedThreadPool(4);
         final Set<Integer> completeCheck= Collections.synchronizedSet(new HashSet<Integer>());
         for (int i = 0; i < 2899; i++) {
             executorService.submit(new Job(i,sqlSessionFactory.openSession(),completeCheck));
