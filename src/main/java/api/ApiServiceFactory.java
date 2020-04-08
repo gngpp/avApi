@@ -1,6 +1,6 @@
 package api;
 
-import impl.ApiServiceImpl;
+import inteface.impl.ApiServiceImpl;
 import inteface.ApiService;
 /**
  * Create by Ant on 2020/3/12 4:34 下午

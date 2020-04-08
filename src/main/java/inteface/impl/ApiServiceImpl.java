@@ -1,4 +1,4 @@
-package impl;
+package inteface.impl;
 
 import inteface.ApiHttpInterface;
 import inteface.ApiService;
