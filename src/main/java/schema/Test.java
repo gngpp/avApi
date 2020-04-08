@@ -12,11 +12,10 @@ import java.util.concurrent.Executors;
 
 public class Test {
 
-    private static String resource="mybatis-config.xml";
     public static SqlSessionFactory getSqlSessionFactory(){
+        String resource = "mybatis-config.xml";
         try (InputStream inputStream= Resources.getResourceAsStream(resource)){
-            SqlSessionFactory sqlSessionFactory=new SqlSessionFactoryBuilder().build(inputStream);
-            return sqlSessionFactory;
+            return new SqlSessionFactoryBuilder().build(inputStream);
         }catch (Exception e){
             e.printStackTrace();
         }
@@ -32,6 +31,7 @@ public class Test {
         final ExecutorService executorService = Executors.newFixedThreadPool(4);
         final Set<Integer> completeCheck= Collections.synchronizedSet(new HashSet<Integer>());
         for (int i = 0; i < 2899; i++) {
+            assert sqlSessionFactory != null;
             executorService.submit(new Job(i,sqlSessionFactory.openSession(),completeCheck));
         }
         executorService.shutdown();
