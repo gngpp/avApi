@@ -24,11 +24,13 @@ public class Test {
 
     public static void main(String[] args) {
         insert();
+
+
     }
 
     public static void insert(){
         SqlSessionFactory sqlSessionFactory=getSqlSessionFactory();
-        final ExecutorService executorService = Executors.newFixedThreadPool(4);
+        final ExecutorService executorService = Executors.newFixedThreadPool(8);
         final Set<Integer> completeCheck= Collections.synchronizedSet(new HashSet<Integer>());
         for (int i = 0; i < 2899; i++) {
             assert sqlSessionFactory != null;
