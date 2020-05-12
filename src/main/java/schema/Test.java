@@ -23,20 +23,14 @@ public class Test {
     }
 
     public static void main(String[] args) {
-        insert();
-
-
-    }
-
-    public static void insert(){
         SqlSessionFactory sqlSessionFactory=getSqlSessionFactory();
-        final ExecutorService executorService = Executors.newFixedThreadPool(8);
+        final int i1 = Runtime.getRuntime().availableProcessors();
+        final ExecutorService executorService = Executors.newFixedThreadPool(i1);
         final Set<Integer> completeCheck= Collections.synchronizedSet(new HashSet<Integer>());
-        for (int i = 0; i < 2899; i++) {
+        for (int i = 0; i < 3000; i++) {
             assert sqlSessionFactory != null;
             executorService.submit(new Job(i,sqlSessionFactory.openSession(),completeCheck));
         }
         executorService.shutdown();
     }
-
 }
