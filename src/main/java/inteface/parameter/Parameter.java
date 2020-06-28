@@ -13,12 +13,30 @@ public class Parameter {
 
     public enum DESC{
 
-        LAST_VIEWED("bw"),    //体重
-        LATEST("mr"),         //最新
-        MOST_VIEWED("mv"),    //最受欢迎
-        TOP_RATED("tr"),      //最高评分
-        MOST_FAVOURED("tf"),  //最喜欢
-        LONGEST("lg");         //最长
+        /**
+         * 体重
+         */
+        LAST_VIEWED("bw"),
+        /**
+         * 最新
+         */
+        LATEST("mr"),
+        /**
+         * 最受欢迎
+         */
+        MOST_VIEWED("mv"),
+        /**
+         * 最高评分
+         */
+        TOP_RATED("tr"),
+        /**
+         * 最喜欢
+         */
+        MOST_FAVOURED("tf"),
+        /**
+         * 最长
+         */
+        LONGEST("lg");
 
         public String value;
 
@@ -33,10 +51,22 @@ public class Parameter {
      */
     public enum TIME{
 
-        DAY("t"),             //1天
-        WEEK("w"),            //1周
-        MONTH("m"),           //1个月
-        FOREVER("a");         //永远
+        /**
+         * 1天
+         */
+        DAY("t"),
+        /**
+         * 1周
+         */
+        WEEK("w"),
+        /**
+         * 1个月
+         */
+        MONTH("m"),
+        /**
+         * 永远
+         */
+        FOREVER("a");
 
         public String value;
 
@@ -50,8 +80,14 @@ public class Parameter {
      */
     public enum TYPE{
 
-        PUBLIC("public"),         //公共
-        PRIMARY("private");      //私人
+        /**
+         * 公共
+         */
+        PUBLIC("public"),
+        /**
+         * 私人
+         */
+        PRIMARY("private");
 
         public String value;
 

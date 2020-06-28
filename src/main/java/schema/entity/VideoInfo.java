@@ -32,9 +32,9 @@ public class VideoInfo {
 
     private Boolean hd;
 
-    private Object addtime;
+    private Object addTime;
 
-    private Integer viewnumber;
+    private Integer viewNumber;
 
     private Integer likes;
 
@@ -44,11 +44,11 @@ public class VideoInfo {
 
     private String embeddedUrl;
 
-    private String priviewUrl;
+    private String previewUrl;
 
     private String previewVideoUrl;
 
-    private Boolean privatee;
+    private Boolean privater;
 
 
 }

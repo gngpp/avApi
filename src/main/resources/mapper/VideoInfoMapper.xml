@@ -11,22 +11,22 @@
         <result property="duration" column="duration" jdbcType="OTHER"/>
         <result property="framerate" column="framerate" jdbcType="OTHER"/>
         <result property="hd" column="hd" jdbcType="BOOLEAN"/>
-        <result property="addtime" column="addtime" jdbcType="OTHER"/>
-        <result property="viewnumber" column="viewnumber" jdbcType="INTEGER"/>
+        <result property="addTime" column="add_time" jdbcType="OTHER"/>
+        <result property="viewNumber" column="view_number" jdbcType="INTEGER"/>
         <result property="likes" column="likes" jdbcType="INTEGER"/>
         <result property="dislikes" column="dislikes" jdbcType="INTEGER"/>
         <result property="videoUrl" column="video_url" jdbcType="VARCHAR"/>
         <result property="embeddedUrl" column="embedded_url" jdbcType="VARCHAR"/>
-        <result property="priviewUrl" column="priview_url" jdbcType="VARCHAR"/>
+        <result property="previewUrl" column="preview_url" jdbcType="VARCHAR"/>
         <result property="previewVideoUrl" column="preview_video_url" jdbcType="VARCHAR"/>
-        <result property="privatee" column="privatee" jdbcType="BOOLEAN"/>
+        <result property="privater" column="private" jdbcType="BOOLEAN"/>
         <result property="id" column="id" javaType="INTEGER"/>
     </resultMap>
 
     <!--查询单个-->
     <select id="queryById" resultMap="VideoInfoMap">
         SELECT
-          vid, uid, title, keyword, channel, duration, framerate, hd, addtime, viewnumber, likes, dislikes, video_url, embedded_url, priview_url, preview_video_url, privatee, id
+          vid, uid, title, keyword, channel, duration, framerate, hd, add_time, view_number, likes, dislikes, video_url, embedded_url, preview_url, preview_video_url, private, id
         FROM video_info
         WHERE id = #{id}
     </select>
@@ -34,7 +34,7 @@
     <!--通过实体作为筛选条件查询-->
     <select id="queryAll" resultMap="VideoInfoMap">
         SELECT
-          vid, uid, title, keyword, channel, duration, framerate, hd, addtime, viewnumber, likes, dislikes, video_url, embedded_url, priview_url, preview_video_url, privatee, id
+        vid, uid, title, keyword, channel, duration, framerate, hd, add_time, view_number, likes, dislikes, video_url, embedded_url, preview_url, preview_video_url, private, id
         FROM video_info
         <where>
             <if test="vid != null">
@@ -61,11 +61,11 @@
             <if test="hd != null">
                 AND hd = #{hd}
             </if>
-            <if test="addtime != null">
-                AND addtime = #{addtime}
+            <if test="addTime != null">
+                AND addtime = #{addTime}
             </if>
-            <if test="viewnumber != null">
-                AND viewnumber = #{viewnumber}
+            <if test="viewNumber != null">
+                AND viewNumber = #{viewNumber}
             </if>
             <if test="likes != null">
                 AND likes = #{likes}
@@ -79,14 +79,14 @@
             <if test="embeddedUrl != null and embeddedUrl != ''">
                 AND embedded_url = #{embeddedUrl}
             </if>
-            <if test="priviewUrl != null and priviewUrl != ''">
-                AND priview_url = #{priviewUrl}
+            <if test="previewUrl != null and previewUrl != ''">
+                AND preview_url = #{previewUrl}
             </if>
             <if test="previewVideoUrl != null and previewVideoUrl != ''">
                 AND preview_video_url = #{previewVideoUrl}
             </if>
-            <if test="privatee != null">
-                AND privatee = #{privatee}
+            <if test="privater != null">
+                AND private = #{privater}
             </if>
             <if test="id != null">
                 AND id = #{id}
@@ -96,8 +96,8 @@
 
     <!--新增所有列-->
     <insert id="insertOne" keyProperty="id" useGeneratedKeys="true">
-        INSERT INTO video_info(vid, uid, title, keyword, channel, duration, framerate, hd, addtime, viewnumber, likes, dislikes, video_url, embedded_url, priview_url, preview_video_url, privatee)
-        VALUES (#{vid}, #{uid}, #{title}, #{keyword}, #{channel}, #{duration}, #{framerate}, #{hd}, #{addtime}, #{viewnumber}, #{likes}, #{dislikes}, #{videoUrl}, #{embeddedUrl}, #{priviewUrl}, #{previewVideoUrl}, #{privatee})
+        INSERT INTO video_info(vid, uid, title, keyword, channel, duration, framerate, hd, add_time, view_number, likes, dislikes, video_url, embedded_url, preview_url, preview_video_url, private)
+        VALUES (#{vid}, #{uid}, #{title}, #{keyword}, #{channel}, #{duration}, #{framerate}, #{hd}, #{addtime}, #{viewnumber}, #{likes}, #{dislikes}, #{videoUrl}, #{embeddedUrl}, #{previewUrl}, #{previewVideoUrl}, #{privatee})
     </insert>
 
     <!--通过主键修改数据-->
@@ -128,11 +128,11 @@
             <if test="hd != null">
                 hd = #{hd},
             </if>
-            <if test="addtime != null">
-                addtime = #{addtime},
+            <if test="addTime != null">
+                add_time = #{addTime},
             </if>
-            <if test="viewnumber != null">
-                viewnumber = #{viewnumber},
+            <if test="viewNumber != null">
+                view_number = #{viewNumber},
             </if>
             <if test="likes != null">
                 likes = #{likes},
@@ -146,14 +146,14 @@
             <if test="embeddedUrl != null and embeddedUrl != ''">
                 embedded_url = #{embeddedUrl},
             </if>
-            <if test="priviewUrl != null and priviewUrl != ''">
-                priview_url = #{priviewUrl},
+            <if test="previewUrl != null and previewUrl != ''">
+                preview_url = #{previewUrl},
             </if>
             <if test="previewVideoUrl != null and previewVideoUrl != ''">
                 preview_video_url = #{previewVideoUrl},
             </if>
-            <if test="privatee != null">
-                privatee = #{privatee},
+            <if test="privater != null">
+                private = #{privater},
             </if>
         </set>
         WHERE id = #{id}
@@ -163,37 +163,42 @@
     <delete id="deleteById">
         DELETE FROM video_info WHERE id = #{id}
     </delete>
-    
+
     <!--批量插入-->
     <insert id="batchInsert" keyProperty="id" useGeneratedKeys="true">
-        INSERT INTO video_info(vid, uid, title, keyword, channel, duration, framerate, hd, addtime, viewnumber, likes, dislikes, video_url, embedded_url, priview_url, preview_video_url, privatee)
-        VALUES 
+        INSERT INTO video_info(vid, uid, title, keyword, channel, duration, framerate, hd, add_time, view_number, likes, dislikes, video_url, embedded_url, preview_url, preview_video_url, private)
+        VALUES
         <foreach collection = "videoInfoList" item = "videoInfo" index = "index" separator="," >
-            (#{videoInfo.vid}, #{videoInfo.uid}, #{videoInfo.title}, #{videoInfo.keyword}, #{videoInfo.channel}, #{videoInfo.duration}, #{videoInfo.framerate}, #{videoInfo.hd}, #{videoInfo.addtime}, #{videoInfo.viewnumber}, #{videoInfo.likes}, #{videoInfo.dislikes}, #{videoInfo.videoUrl}, #{videoInfo.embeddedUrl}, #{videoInfo.priviewUrl}, #{videoInfo.previewVideoUrl}, #{videoInfo.privatee})
+            (#{videoInfo.vid}, #{videoInfo.uid}, #{videoInfo.title}, #{videoInfo.keyword}, #{videoInfo.channel}, #{videoInfo.duration}, #{videoInfo.framerate}, #{videoInfo.hd}, #{videoInfo.addTime}, #{videoInfo.viewNumber}, #{videoInfo.likes}, #{videoInfo.dislikes}, #{videoInfo.videoUrl}, #{videoInfo.embeddedUrl}, #{videoInfo.previewUrl}, #{videoInfo.previewVideoUrl}, #{videoInfo.privater})
         </foreach>
     </insert>
-    
+
     <!--根据主键批量查询-->
     <select id="batchQueryByIdList" resultMap="VideoInfoMap">
         SELECT
-          vid, uid, title, keyword, channel, duration, framerate, hd, addtime, viewnumber, likes, dislikes, video_url, embedded_url, priview_url, preview_video_url, privatee, id          
+          vid, uid, title, keyword, channel, duration, framerate, hd, add_time, view_number, likes, dislikes, video_url, embedded_url, preview_url, preview_video_url, private, id
         FROM video_info
         WHERE id
         IN
         <foreach collection = "videoInfoIdList" item = "videoInfoId" index = "index" open = "(" close = ")" separator = ",">
             #{videoInfoId}
         </foreach>
-    </select> 
-    
+    </select>
+    <select id="queryList" resultType="schema.entity.VideoInfo">
+        SELECT
+            vid, uid, title, keyword, channel, duration, framerate, hd, add_time, view_number, likes, dislikes, video_url, embedded_url, preview_url, preview_video_url, private, id
+        FROM video_info
+    </select>
+
     <!--根据主键批量删除-->
     <delete id="batchDeleteByIdList">
-        DELETE FROM video_info 
+        DELETE FROM video_info
         WHERE id
         IN
         <foreach collection = "videoInfoIdList" item = "videoInfoId" index = "index" open = "(" close = ")" separator = ",">
             #{videoInfoId}
-        </foreach> 
-    </delete> 
-    
+        </foreach>
+    </delete>
+
     <!--——————————————————————————————————————————————————————————————————————————————————————————-->
 </mapper>

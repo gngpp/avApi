@@ -14,12 +14,13 @@ import java.util.Set;
 /**
  * Create by Ant on 2020/3/14 2:01 下午
  * amd
+ * @author mac
  */
 public class Job implements Runnable {
 
-    private int pageNumber;
-    private SqlSession sqlSession;
-    private Set<Integer> completeCheck;
+    private final int pageNumber;
+    private final SqlSession sqlSession;
+    private final Set<Integer> completeCheck;
 
     public Job(int pageNumber, SqlSession sqlSession, Set<Integer> completeCheck) {
         this.pageNumber = pageNumber;
@@ -45,7 +46,7 @@ public class Job implements Runnable {
             }catch (Exception e){
                 System.out.println(e.getMessage());
                 try {
-                    Thread.sleep(60000);
+                    Thread.sleep(2000);
                 } catch (InterruptedException ex) {
                     ex.printStackTrace();
                 }
@@ -62,21 +63,22 @@ public class Job implements Runnable {
                     VideoInfo videoInfo = new VideoInfo();
                     videoInfo.setVid(video.getVid())
                             .setUid(video.getUid())
-                            .setAddtime(new Date(video.getAddtime()))
+                            .setAddTime(new Date(video.getAddTime()))
                             .setChannel(video.getChannel())
                             .setDislikes(video.getDislikes())
-                            .setEmbeddedUrl(video.getEmbedded_url())
+                            .setEmbeddedUrl(video.getEmbeddedUrl())
                             .setDuration(video.getDuration())
                             .setFramerate(video.getFramerate())
                             .setKeyword(video.getKeyword())
-                            .setPreviewVideoUrl(video.getPreview_video_url())
+                            .setPreviewVideoUrl(video.getPreviewVideoUrl())
                             .setLikes(video.getLikes())
-                            .setViewnumber(video.getViewnumber())
+                            .setViewNumber(video.getViewNumber())
                             .setHd(video.isHd())
-                            .setPrivatee(video.isPrivatee())
+                            .setPrivater(video.isPrivater())
                             .setTitle(video.getTitle())
-                            .setPriviewUrl(video.getPreview_url())
-                            .setVideoUrl(video.getVideo_url());
+                            .setPreviewUrl(video.getPreviewUrl())
+                            .setVideoUrl(video.getVideoUrl())
+                             .setPrivater(video.isPrivater());
                     list1.add(videoInfo);
                 }
                 mapper.batchInsert(list1);

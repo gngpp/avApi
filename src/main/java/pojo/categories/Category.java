@@ -1,26 +1,22 @@
 package pojo.categories;
 
-/**
- * Create by Ant on 2020/3/12 8:50 下午
- * amd
- */
-
 import lombok.Data;
 import lombok.experimental.Accessors;
 
 /**
- * Copyright 2020 bejson.com
+ * Copyright 2020 benson.com
+ * @author mac
  */
 @Data
 @Accessors(chain = true)
 public class Category {
 
-    private String CHID;
+    private String chId;
     private String name;
     private String slug;
-    private int total_videos;
-    private String shortname;
-    private String category_url;
-    private String cover_url;
+    private int totalVideos;
+    private String shortName;
+    private String categoryUrl;
+    private String coverUrl;
 
 }

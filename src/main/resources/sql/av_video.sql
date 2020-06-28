@@ -11,7 +11,7 @@
  Target Server Version : 50729
  File Encoding         : 65001
 
- Date: 12/05/2020 10:28:12
+ Date: 27/06/2020 18:06:11
 */
 
 SET NAMES utf8mb4;
@@ -30,17 +30,17 @@ CREATE TABLE `video_info` (
   `duration` double(255,0) DEFAULT NULL,
   `framerate` double(255,0) DEFAULT NULL,
   `hd` bit(1) DEFAULT NULL,
-  `addtime` date DEFAULT NULL,
-  `viewnumber` int(11) DEFAULT NULL,
+  `add_time` date DEFAULT NULL,
+  `view_number` int(11) DEFAULT NULL,
   `likes` int(11) DEFAULT NULL,
   `dislikes` int(11) DEFAULT NULL,
   `video_url` varchar(512) COLLATE utf8mb4_bin DEFAULT NULL,
   `embedded_url` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
-  `priview_url` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
+  `preview_url` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
   `preview_video_url` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
-  `privatee` bit(1) DEFAULT NULL,
+  `private` bit(1) DEFAULT NULL,
   `id` int(11) NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=144951 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+) ENGINE=InnoDB AUTO_INCREMENT=15851 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 SET FOREIGN_KEY_CHECKS = 1;

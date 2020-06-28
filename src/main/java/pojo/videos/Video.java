@@ -18,13 +18,13 @@ public class Video {
     private double duration;
     private double framerate;
     private boolean hd;
-    private long addtime;
-    private int viewnumber;
+    private long addTime;
+    private int viewNumber;
     private int likes;
     private int dislikes;
-    private String video_url;
-    private String embedded_url;
-    private String preview_url;
-    private String preview_video_url;
-    private boolean privatee;
+    private String videoUrl;
+    private String embeddedUrl;
+    private String previewUrl;
+    private String previewVideoUrl;
+    private boolean privater;
 }

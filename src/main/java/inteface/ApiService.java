@@ -40,17 +40,17 @@ public interface ApiService {
 
      JsonRootPojo<VideosResponse<Video>> getVideosOfSearchByType(String query,int page,Parameter.TYPE type);
 
-     JsonRootPojo<VideosResponse<Video>> getVideosOfSearchByCHID(String query,int page,Parameter.CHID chid);
+     JsonRootPojo<VideosResponse<Video>> getVideosOfSearchByCHID(String query, int page, Parameter.CHID chid);
 
-     JsonRootPojo<VideosResponse<Video>> getVideosOfSearchJAVsByLimit(String query,int page,int limit);
+     JsonRootPojo<VideosResponse<Video>> getVideosOfSearchJAVsByLimit(String query, int page, int limit);
 
-     JsonRootPojo<VideosResponse<Video>> getVideosOfSearchJAVsByDesc(String query,int page,Parameter.DESC desc);
+     JsonRootPojo<VideosResponse<Video>> getVideosOfSearchJAVsByDesc(String query, int page, Parameter.DESC desc);
 
-     JsonRootPojo<VideosResponse<Video>> getVideosOfSearchJAVsByTime(String query,int page,Parameter.TIME time);
+     JsonRootPojo<VideosResponse<Video>> getVideosOfSearchJAVsByTime(String query, int page, Parameter.TIME time);
 
-     JsonRootPojo<VideosResponse<Video>> getVideosOfSearchJAVsByType(String query,int page,Parameter.TYPE type);
+     JsonRootPojo<VideosResponse<Video>> getVideosOfSearchJAVsByType(String query, int page, Parameter.TYPE type);
 
-     JsonRootPojo<VideosResponse<Video>> getVideosOfSearchJAVsByCHID(String query,int page,Parameter.CHID chid);
+     JsonRootPojo<VideosResponse<Video>> getVideosOfSearchJAVsByCHID(String query, int page, Parameter.CHID chid);
 
 
 

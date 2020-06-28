@@ -1,5 +1,7 @@
 package inteface.impl;
 
+import com.google.gson.FieldNamingPolicy;
+import com.google.gson.GsonBuilder;
 import inteface.ApiHttpInterface;
 import inteface.ApiService;
 import inteface.parameter.Parameter;
@@ -31,7 +33,8 @@ public class ApiServiceImpl implements ApiService {
     static {
         Retrofit retrofit= new Retrofit.Builder()
                 .baseUrl("https://api.avgle.com/")
-                .addConverterFactory(GsonConverterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create(new GsonBuilder().setFieldNamingPolicy(FieldNamingPolicy.LOWER_CASE_WITH_UNDERSCORES)
+                                                                                  .create()))
                 .client(new OkHttpClient.Builder().
                         proxy(new Proxy(Proxy.Type.HTTP,new InetSocketAddress("localhost",1087)))
                         .connectTimeout(1, TimeUnit.HOURS)
