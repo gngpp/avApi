@@ -1,5 +1,4 @@
 import api.ApiServiceFactory;
-import ch.qos.logback.core.net.SyslogOutputStream;
 import inteface.parameter.Parameter;
 import pojo.videos.Video;
 import pojo.categories.Category;
@@ -85,7 +84,7 @@ public class Test {
 
         Video videoInfo=ApiServiceFactory
                 .getService()
-                .getVideoForVID(2)
+                .getVideoForVid(2)
                 .getResponse()
                 .getVideo();
         System.out.println(videoInfo);
@@ -131,7 +130,7 @@ public class Test {
                 .getVideos();
         list4.forEach(System.out::println);
     }
-    
+
     @org.junit.Test
     public void videoOfTypeTest(){
         List<Video> list1=ApiServiceFactory
@@ -140,7 +139,7 @@ public class Test {
                 .getResponse()
                 .getVideos();
         list1.forEach(System.out::println);
-        
+
         List<Video> list2=ApiServiceFactory
                 .getService()
                 .getVideosOfType(3, Parameter.TYPE.PUBLIC)
@@ -148,26 +147,26 @@ public class Test {
                 .getVideos();
         list2.forEach(System.out::println);
     }
-    
+
     @org.junit.Test
     public void videoOfCHIDTest(){
         List<Video> list1=ApiServiceFactory
                 .getService()
-                .getVideosOfCHID(4, Parameter.CHID.D3)
+                .getVideosOfChId(4, Parameter.CHID.D3)
                 .getResponse()
                 .getVideos();
         list1.forEach(System.out::println);
-        
+
         List<Video> list2=ApiServiceFactory
                 .getService()
-                .getVideosOfCHID(5, Parameter.CHID.ANAL)
+                .getVideosOfChId(5, Parameter.CHID.ANAL)
                 .getResponse()
                 .getVideos();
         list2.forEach(System.out::println);
-        
+
         List<Video> list3=ApiServiceFactory
                 .getService()
-                .getVideosOfCHID(2, Parameter.CHID.ASIAN)
+                .getVideosOfChId(2, Parameter.CHID.ASIAN)
                 .getResponse()
                 .getVideos();
         list3.forEach(System.out::println);
@@ -178,7 +177,7 @@ public class Test {
 
         Video videoInfo=ApiServiceFactory
                 .getService()
-                .getVideoForVID(2)
+                .getVideoForVid(2)
                 .getResponse()
                 .getVideo();
         System.out.println(videoInfo);
@@ -264,7 +263,7 @@ public class Test {
     public void videosOfSearchByCHID(){
         List<Video> list=ApiServiceFactory
                 .getService()
-                .getVideosOfSearchByCHID("少女",1, Parameter.CHID.ASIAN)
+                .getVideosOfSearchByChId("少女", 1, Parameter.CHID.ASIAN)
                 .getResponse()
                 .getVideos();
         list.forEach(System.out::println);
@@ -274,7 +273,7 @@ public class Test {
     public void videosOfSearchJAVsByLimitTest(){
         List<Video> list=ApiServiceFactory
                 .getService()
-                .getVideosOfSearchJAVsByLimit("少女",0,2)
+                .getVideosOfSearchAvByLimit("少女", 0, 2)
                 .getResponse()
                 .getVideos();
         list.forEach(System.out::println);
@@ -284,7 +283,7 @@ public class Test {
     public void videosOfSearchJAVsByDescTest(){
         List<Video> list=ApiServiceFactory
                 .getService()
-                .getVideosOfSearchJAVsByDesc("少女",0, Parameter.DESC.LATEST)
+                .getVideosOfSearchAvByDesc("少女", 0, Parameter.DESC.LATEST)
                 .getResponse()
                 .getVideos();
         list.forEach(System.out::println);
@@ -294,7 +293,7 @@ public class Test {
     public void videosOfSearchJAVsByTimeTest(){
         List<Video> list=ApiServiceFactory
                 .getService()
-                .getVideosOfSearchJAVsByTime("熟女",0, Parameter.TIME.WEEK)
+                .getVideosOfSearchAvByTime("熟女", 0, Parameter.TIME.WEEK)
                 .getResponse()
                 .getVideos();
         list.forEach(System.out::println);
@@ -304,7 +303,7 @@ public class Test {
     public void videosOfSearchJAVsByTypeTest(){
         List<Video> list = ApiServiceFactory
                 .getService()
-                .getVideosOfSearchJAVsByType("日本",1, Parameter.TYPE.PUBLIC)
+                .getVideosOfSearchAvByType("日本", 1, Parameter.TYPE.PUBLIC)
                 .getResponse()
                 .getVideos();
         list.forEach(System.out::println);
@@ -314,7 +313,7 @@ public class Test {
     public void videosOfSearchJAVsByCHIDTest(){
         List<Video> list = ApiServiceFactory
                 .getService()
-                .getVideosOfSearchJAVsByCHID("中国",0, Parameter.CHID.AV_ACTRESS)
+                .getVideosOfSearchAvByChId("中国", 0, Parameter.CHID.AV_ACTRESS)
                 .getResponse()
                 .getVideos();
         list.forEach(System.out::println);

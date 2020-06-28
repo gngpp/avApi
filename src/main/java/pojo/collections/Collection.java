@@ -16,5 +16,5 @@ public class Collection {
     private String keyword;
     private String coverUrl;
     private String totalCount;
-    private String colletion_usr;
+    private String collationUar;
 }

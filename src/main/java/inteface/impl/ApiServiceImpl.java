@@ -74,18 +74,18 @@ public class ApiServiceImpl implements ApiService {
     }
 
     @Override
-    public JsonRootPojo<VideosResponse<Video>> getVideosOfCHID(int page, Parameter.CHID chid) {
-        return executeCall(INTERFACE.getVideosOfCHID(page,chid.value));
+    public JsonRootPojo<VideosResponse<Video>> getVideosOfChId(int page, Parameter.CHID chId) {
+        return executeCall(INTERFACE.getVideosOfChId(page, chId.value));
     }
 
     @Override
-    public JsonRootPojo<VideoResponse<Video>> getVideoForVID(int vid) {
-        return executeCall(INTERFACE.getVideoForVID(vid));
+    public JsonRootPojo<VideoResponse<Video>> getVideoForVid(int vid) {
+        return executeCall(INTERFACE.getVideoForVid(vid));
     }
 
     @Override
     public JsonRootPojo<VideosResponse<Video>> getVideosOfSearchByLimit(String query, int page, int limit) {
-        return executeCall(INTERFACE.getVideosOfSearchBylimit(query,page,limit));
+        return executeCall(INTERFACE.getVideosOfSearchByLimit(query, page, limit));
     }
 
     @Override
@@ -104,33 +104,33 @@ public class ApiServiceImpl implements ApiService {
     }
 
     @Override
-    public JsonRootPojo<VideosResponse<Video>> getVideosOfSearchByCHID(String query, int page, Parameter.CHID chid) {
-        return executeCall(INTERFACE.getVideosOfSearchByCHID(query,page, chid.value));
+    public JsonRootPojo<VideosResponse<Video>> getVideosOfSearchByChId(String query, int page, Parameter.CHID chId) {
+        return executeCall(INTERFACE.getVideosOfSearchByChId(query, page, chId.value));
     }
 
     @Override
-    public JsonRootPojo<VideosResponse<Video>> getVideosOfSearchJAVsByLimit(String query, int page, int limit) {
-        return executeCall(INTERFACE.getVideosOfSearchJAVsByLimit(query,page,limit));
+    public JsonRootPojo<VideosResponse<Video>> getVideosOfSearchAvByLimit(String query, int page, int limit) {
+        return executeCall(INTERFACE.getVideosOfSearchAvByLimit(query, page, limit));
     }
 
     @Override
-    public JsonRootPojo<VideosResponse<Video>> getVideosOfSearchJAVsByDesc(String query, int page, Parameter.DESC desc) {
-        return executeCall(INTERFACE.getVideosOfSearchJAVsByDesc(query,page,desc.value));
+    public JsonRootPojo<VideosResponse<Video>> getVideosOfSearchAvByDesc(String query, int page, Parameter.DESC desc) {
+        return executeCall(INTERFACE.getVideosOfSearchAvByDesc(query, page, desc.value));
     }
 
     @Override
-    public JsonRootPojo<VideosResponse<Video>> getVideosOfSearchJAVsByTime(String query, int page, Parameter.TIME time) {
-        return executeCall(INTERFACE.getVideosOfSearchJAVsByTime(query,page,time.value));
+    public JsonRootPojo<VideosResponse<Video>> getVideosOfSearchAvByTime(String query, int page, Parameter.TIME time) {
+        return executeCall(INTERFACE.getVideosOfSearchAvByTime(query, page, time.value));
     }
 
     @Override
-    public JsonRootPojo<VideosResponse<Video>> getVideosOfSearchJAVsByType(String query, int page, Parameter.TYPE type) {
-        return executeCall(INTERFACE.getVideosOfSearchJAVsByType(query,page,type.value));
+    public JsonRootPojo<VideosResponse<Video>> getVideosOfSearchAvByType(String query, int page, Parameter.TYPE type) {
+        return executeCall(INTERFACE.getVideosOfSearchAvByType(query, page, type.value));
     }
 
     @Override
-    public JsonRootPojo<VideosResponse<Video>> getVideosOfSearchJAVsByCHID(String query, int page, Parameter.CHID chid) {
-        return executeCall(INTERFACE.getVideosOfSearchJAVsByCHID(query,page,chid.value));
+    public JsonRootPojo<VideosResponse<Video>> getVideosOfSearchAvByChId(String query, int page, Parameter.CHID chId) {
+        return executeCall(INTERFACE.getVideosOfSearchAvByChId(query, page, chId.value));
     }
 
 
