@@ -4,6 +4,7 @@ package inteface.parameter;
  * 请求url参数
  * Create by Ant on 2020/3/12 10:39 下午
  * amd
+ * @author mac
  */
 public class Parameter {
 

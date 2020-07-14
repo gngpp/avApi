@@ -78,7 +78,7 @@ public class Job implements Runnable {
                             .setTitle(video.getTitle())
                             .setPreviewUrl(video.getPreviewUrl())
                             .setVideoUrl(video.getVideoUrl())
-                             .setPrivater(video.isPrivater());
+                            .setPrivater(video.isPrivater());
                     list1.add(videoInfo);
                 }
                 mapper.batchInsert(list1);

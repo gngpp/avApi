@@ -25,10 +25,11 @@ import java.util.concurrent.TimeUnit;
 /**
  * Create by Ant on 2020/3/12 4:36 下午
  * amd
+ * @author mac
  */
 public class ApiServiceImpl implements ApiService {
 
-    private static ApiHttpInterface INTERFACE;
+    private static final ApiHttpInterface INTERFACE;
 
     static {
         Retrofit retrofit= new Retrofit.Builder()

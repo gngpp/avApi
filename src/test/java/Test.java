@@ -4,8 +4,8 @@ import pojo.videos.Video;
 import pojo.categories.Category;
 import pojo.collections.Collection;
 
-import java.util.Date;
-import java.util.List;
+import java.io.*;
+import java.util.*;
 
 /**
  * Create by Ant on 2020/3/12 5:20 下午
@@ -14,13 +14,110 @@ import java.util.List;
 public class Test {
 
     @org.junit.Test
-    public void categoryTest(){
-        List<Category> categories=ApiServiceFactory
-                .getService()
-                .getVideoCategory()
-                .getResponse()
-                .getCategories();
-        categories.forEach(System.out::println);
+    public void categoryTest() throws IOException {
+//        List<Category> categories=ApiServiceFactory
+//                .getService()
+//                .getVideoCategory()
+//                .getResponse()
+//                .getCategories();
+//        categories.forEach(System.out::println);
+        final Object object = new Object();
+
+        Thread t1 = new Thread() {
+
+            public void run()             {
+
+                synchronized (object) {
+
+                    System.out.println("T1 start!");
+
+                    try {
+
+                        object.wait();
+
+                    } catch (InterruptedException e) {
+
+                        e.printStackTrace();
+
+                    }
+
+                    System.out.println("T1 end!");
+
+                }
+
+            }
+
+        };
+
+        Thread t2 = new Thread() {
+
+            public void run()             {
+
+                synchronized (object) {
+
+                    System.out.println("T2 start!");
+
+                    object.notify();
+
+                    System.out.println("T2 end!");
+
+                }
+
+            }
+
+        };
+
+        Thread t3 = new Thread() {
+
+            public void run()          {
+
+                synchronized (object) {
+
+                    System.out.println("T3 start!");
+
+                    object.notify();
+
+                    System.out.println("T3 end!");
+
+                }
+
+            }
+
+        };
+
+        Thread t4 = new Thread() {
+
+            public void run()             {
+
+                synchronized (object) {
+
+                    System.out.println("T4 start!");
+
+                    try {
+
+                        object.wait();
+
+                    } catch (InterruptedException e) {
+
+                        e.printStackTrace();
+
+                    }
+
+                    System.out.println("T4 end!");
+
+                }
+
+            }
+
+        };
+
+        t1.start();
+
+        t2.start();
+
+        t3.start();
+
+        t4.start();
     }
 
     @org.junit.Test

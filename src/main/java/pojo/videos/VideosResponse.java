@@ -16,6 +16,6 @@ public class VideosResponse <T> {
     private String hasName;
     private Integer currentOffset;
     private Integer totalVideos;
-    private  Integer limit;
+    private Integer limit;
     private List<T> videos;
 }
