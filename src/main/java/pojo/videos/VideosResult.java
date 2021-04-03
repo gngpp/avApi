@@ -12,10 +12,11 @@ import java.util.List;
  */
 @Data
 @Accessors(chain = true)
-public class VideosResponse <T> {
+public class VideosResult<T> {
     private String hasName;
     private Integer currentOffset;
     private Integer totalVideos;
     private Integer limit;
     private List<T> videos;
 }
+

@@ -5,11 +5,12 @@ import org.apache.ibatis.session.SqlSession;
 import pojo.videos.Video;
 import schema.dao.VideoInfoDao;
 import schema.entity.VideoInfo;
-import java.sql.Date;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Set;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 /**
  * Create by Ant on 2020/3/14 2:01 下午
@@ -38,17 +39,19 @@ public class Job implements Runnable {
         List<Video> list= Collections.emptyList();
         while (flag){
             try {
-                list= ApiServiceFactory
-                        .getService()
-                        .getVideosOfLimit(pageNumber,50)
-                        .getResponse()
-                        .getVideos();
+                list= ApiServiceFactory.getService()
+                                       .getVideosOfLimit(pageNumber,250)
+                                       .getResponse()
+                                       .getVideos();
+                // 资源爬取完毕退出
+                if (list.isEmpty()) {
+                    return;
+                }
             }catch (Exception e){
-                System.out.println(e.getMessage());
                 try {
-                    Thread.sleep(2000);
-                } catch (InterruptedException ex) {
-                    ex.printStackTrace();
+                    Thread.sleep(60000);
+                } catch (InterruptedException ignored) {
+
                 }
                 flag=true;
                 continue;
@@ -57,33 +60,31 @@ public class Job implements Runnable {
         }
 
         try {
-            if(!list.isEmpty()){
-                List<VideoInfo> list1=new ArrayList<>();
-                for (Video video : list) {
-                    VideoInfo videoInfo = new VideoInfo();
-                    videoInfo.setVid(video.getVid())
-                            .setUid(video.getUid())
-                            .setAddTime(new Date(video.getAddTime()))
-                            .setChannel(video.getChannel())
-                            .setDislikes(video.getDislikes())
-                            .setEmbeddedUrl(video.getEmbeddedUrl())
-                            .setDuration(video.getDuration())
-                            .setFramerate(video.getFramerate())
-                            .setKeyword(video.getKeyword())
-                            .setPreviewVideoUrl(video.getPreviewVideoUrl())
-                            .setLikes(video.getLikes())
-                            .setViewNumber(video.getViewNumber())
-                            .setHd(video.isHd())
-                            .setPrivater(video.isPrivater())
-                            .setTitle(video.getTitle())
-                            .setPreviewUrl(video.getPreviewUrl())
-                            .setVideoUrl(video.getVideoUrl())
-                            .setPrivater(video.isPrivater());
-                    list1.add(videoInfo);
-                }
-                mapper.batchInsert(list1);
-                sqlSession.commit(true);
+            List<VideoInfo> list1=new ArrayList<>();
+            for (Video video : list) {
+                VideoInfo videoInfo = new VideoInfo();
+                videoInfo.setVid(video.getVid())
+                        .setUid(video.getUid())
+                        .setAddtime(video.getAddtime())
+                        .setChannel(video.getChannel())
+                        .setDislikes(video.getDislikes())
+                        .setEmbeddedUrl(video.getEmbeddedUrl())
+                        .setDuration(video.getDuration())
+                        .setFramerate(video.getFramerate())
+                        .setKeyword(video.getKeyword())
+                        .setPreviewVideoUrl(video.getPreviewVideoUrl())
+                        .setLikes(video.getLikes())
+                        .setViewnumber(video.getViewnumber())
+                        .setHd(video.getHd())
+                        .setPrivater(video.isPrivater())
+                        .setTitle(video.getTitle())
+                        .setPreviewUrl(video.getPreviewUrl())
+                        .setVideoUrl(video.getVideoUrl())
+                        .setPrivater(video.isPrivater());
+                list1.add(videoInfo);
             }
+            mapper.batchInsert(list1);
+            sqlSession.commit(true);
         } catch (Exception e) {
             e.printStackTrace();
         }

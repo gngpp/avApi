@@ -10,7 +10,7 @@ import lombok.experimental.Accessors;
  */
 @Data
 @Accessors(chain = true)
-public class JsonRootPojo<T>{
+public class Result<T>{
     private boolean success;
     private T response;
 }

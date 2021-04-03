@@ -4,6 +4,8 @@ package schema.entity;
 import lombok.Data;
 import lombok.experimental.Accessors;
 
+import java.util.Date;
+
 /**
  * (VideoInfo)表实体类
  *
@@ -12,6 +14,7 @@ import lombok.experimental.Accessors;
  */
 @Data
 @Accessors(chain = true)
+@SuppressWarnings("all")
 public class VideoInfo {
 
     private Integer id;
@@ -26,15 +29,15 @@ public class VideoInfo {
 
     private String channel;
 
-    private Object duration;
+    private Double duration;
 
-    private Object framerate;
+    private Double framerate;
 
     private Boolean hd;
 
-    private Object addTime;
+    private Long addtime;
 
-    private Integer viewNumber;
+    private Integer viewnumber;
 
     private Integer likes;
 

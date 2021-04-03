@@ -8,14 +8,16 @@ import inteface.ApiService;
  * @author mac
  */
 public class ApiServiceFactory {
-    private static volatile ApiServiceImpl API;
+    private static  ApiServiceImpl API;
     private ApiServiceFactory(){}
     public static ApiService getService() {
-        synchronized (ApiServiceFactory.class){
-            if (API == null) {
-                API = new ApiServiceImpl();
+        if (API == null) {
+            synchronized (ApiServiceFactory.class){
+                if (API == null) {
+                    API = new ApiServiceImpl();
+                }
             }
-            return API;
         }
+        return API;
     }
 }

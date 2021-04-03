@@ -7,15 +7,15 @@
         <typeAlias type="schema.entity.VideoInfo" alias="VideoInfo"/>
     </typeAliases>
 
-    <!-- 定义数据库信息 -->
+    <!-- 定义数据源信息 -->
     <environments default="development">
         <environment id="development">
             <!-- jdbc事物管理 -->
             <transactionManager type="JDBC"/>
-            <!-- 数据库链接信息 -->
+            <!-- 数据源配置 -->
             <dataSource type="POOLED">
                 <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
-                <property name="url" value="jdbc:mysql://localhost:3306/av_video?characterEncoding=UTF-8"/>
+                <property name="url" value="jdbc:mysql://localhost:3306/av?characterEncoding=UTF-8"/>
                 <property name="username" value="root"/>
                 <property name="password" value="itcast"/>
             </dataSource>

@@ -1,11 +1,10 @@
 package inteface;
 
 import inteface.parameter.Parameter;
-import jdk.nashorn.internal.scripts.JS;
-import pojo.JsonRootPojo;
+import pojo.Result;
 import pojo.videos.Video;
 import pojo.videos.VideoResponse;
-import pojo.videos.VideosResponse;
+import pojo.videos.VideosResult;
 import pojo.categories.Category;
 import pojo.categories.CategoriesResponse;
 import pojo.collections.CollectionsResponse;
@@ -23,7 +22,7 @@ public interface ApiService {
       *
       * @return 类别集合
       */
-     JsonRootPojo<CategoriesResponse<Category>> getVideoCategory();
+     Result<CategoriesResponse<Category>> getVideoCategory();
 
      /**
       * 获取收藏集
@@ -32,7 +31,7 @@ public interface ApiService {
       * @param limit limit
       * @return result
       */
-     JsonRootPojo<CollectionsResponse<Collection>> getCollections(int page, int limit);
+     Result<CollectionsResponse<Collection>> getCollections(int page, int limit);
 
      /**
       * 获取视频by limit
@@ -41,7 +40,7 @@ public interface ApiService {
       * @param limit limit
       * @return result
       */
-     JsonRootPojo<VideosResponse<Video>> getVideosOfLimit(int page, int limit);
+     Result<VideosResult<Video>> getVideosOfLimit(int page, int limit);
 
      /**
       * 获取视频by desc
@@ -50,7 +49,7 @@ public interface ApiService {
       * @param desc desc
       * @return result
       */
-     JsonRootPojo<VideosResponse<Video>> getVideosOfDesc(int page, Parameter.DESC desc);
+     Result<VideosResult<Video>> getVideosOfDesc(int page, Parameter.DESC desc);
 
      /**
       * 获取视频by time
@@ -59,7 +58,7 @@ public interface ApiService {
       * @param time time
       * @return result
       */
-     JsonRootPojo<VideosResponse<Video>> getVideosOfTime(int page, Parameter.TIME time);
+     Result<VideosResult<Video>> getVideosOfTime(int page, Parameter.TIME time);
 
      /**
       * 获取视频by type
@@ -68,7 +67,7 @@ public interface ApiService {
       * @param type limit
       * @return result
       */
-     JsonRootPojo<VideosResponse<Video>> getVideosOfType(int page, Parameter.TYPE type);
+     Result<VideosResult<Video>> getVideosOfType(int page, Parameter.TYPE type);
 
      /**
       * 获取视频by chId
@@ -77,7 +76,7 @@ public interface ApiService {
       * @param chId chId
       * @return result
       */
-     JsonRootPojo<VideosResponse<Video>> getVideosOfChId(int page, Parameter.CHID chId);
+     Result<VideosResult<Video>> getVideosOfChId(int page, Parameter.CHID chId);
 
      /**
       * 获取视频by vid
@@ -85,7 +84,7 @@ public interface ApiService {
       * @param vid vid
       * @return result
       */
-     JsonRootPojo<VideoResponse<Video>> getVideoForVid(int vid);
+     Result<VideoResponse<Video>> getVideoForVid(int vid);
 
      /**
       * 获取视频of search by limit
@@ -95,7 +94,7 @@ public interface ApiService {
       * @param limit limit
       * @return result
       */
-     JsonRootPojo<VideosResponse<Video>> getVideosOfSearchByLimit(String query,int page,int limit);
+     Result<VideosResult<Video>> getVideosOfSearchByLimit(String query, int page, int limit);
 
      /**
       * 获取视频of search by desc
@@ -105,7 +104,7 @@ public interface ApiService {
       * @param desc desc
       * @return result
       */
-     JsonRootPojo<VideosResponse<Video>> getVideosOfSearchByDesc(String query,int page,Parameter.DESC desc);
+     Result<VideosResult<Video>> getVideosOfSearchByDesc(String query, int page, Parameter.DESC desc);
 
      /**
       * 获取视频of search by time
@@ -115,7 +114,7 @@ public interface ApiService {
       * @param time time
       * @return result
       */
-     JsonRootPojo<VideosResponse<Video>> getVideosOfSearchByTime(String query,int page,Parameter.TIME time);
+     Result<VideosResult<Video>> getVideosOfSearchByTime(String query, int page, Parameter.TIME time);
 
      /**
       * 获取视频of search by type
@@ -125,7 +124,7 @@ public interface ApiService {
       * @param type type
       * @return result
       */
-     JsonRootPojo<VideosResponse<Video>> getVideosOfSearchByType(String query,int page,Parameter.TYPE type);
+     Result<VideosResult<Video>> getVideosOfSearchByType(String query, int page, Parameter.TYPE type);
 
      /**
       * 获取视频of search by chId
@@ -135,7 +134,7 @@ public interface ApiService {
       * @param chId chId
       * @return result
       */
-     JsonRootPojo<VideosResponse<Video>> getVideosOfSearchByChId(String query, int page, Parameter.CHID chId);
+     Result<VideosResult<Video>> getVideosOfSearchByChId(String query, int page, Parameter.CHID chId);
 
      /**
       * 获取视频of search JAVs By limit
@@ -145,7 +144,7 @@ public interface ApiService {
       * @param limit ；limit
       * @return result
       */
-     JsonRootPojo<VideosResponse<Video>> getVideosOfSearchAvByLimit(String query, int page, int limit);
+     Result<VideosResult<Video>> getVideosOfSearchAvByLimit(String query, int page, int limit);
 
      /**
       * 获取视频of search JAVs by desc
@@ -155,7 +154,7 @@ public interface ApiService {
       * @param desc desc
       * @return result
       */
-     JsonRootPojo<VideosResponse<Video>> getVideosOfSearchAvByDesc(String query, int page, Parameter.DESC desc);
+     Result<VideosResult<Video>> getVideosOfSearchAvByDesc(String query, int page, Parameter.DESC desc);
 
      /**
       * 获取视频of search JAVs by time
@@ -165,7 +164,7 @@ public interface ApiService {
       * @param time time
       * @return result
       */
-     JsonRootPojo<VideosResponse<Video>> getVideosOfSearchAvByTime(String query, int page, Parameter.TIME time);
+     Result<VideosResult<Video>> getVideosOfSearchAvByTime(String query, int page, Parameter.TIME time);
 
      /**
       * 获取视频of search  JAVs by type
@@ -175,7 +174,7 @@ public interface ApiService {
       * @param type type
       * @return result
       */
-     JsonRootPojo<VideosResponse<Video>> getVideosOfSearchAvByType(String query, int page, Parameter.TYPE type);
+     Result<VideosResult<Video>> getVideosOfSearchAvByType(String query, int page, Parameter.TYPE type);
 
      /**
       * 获取视频of search JAVs by chId
@@ -185,7 +184,7 @@ public interface ApiService {
       * @param chId chId
       * @return result
       */
-     JsonRootPojo<VideosResponse<Video>> getVideosOfSearchAvByChId(String query, int page, Parameter.CHID chId);
+     Result<VideosResult<Video>> getVideosOfSearchAvByChId(String query, int page, Parameter.CHID chId);
 
 }
 
